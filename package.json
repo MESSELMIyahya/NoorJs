@@ -11,7 +11,7 @@
     "prettier": "^3.2.5",
     "turbo": "^2.0.14"
   },
-  "name": "with-vite",
+  "name": "NJF.js",
   "packageManager": "npm@10.7.0",
   "workspaces": [
     "apps/*",
