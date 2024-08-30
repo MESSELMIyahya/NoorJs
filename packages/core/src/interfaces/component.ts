@@ -1,4 +1,7 @@
-import { ComponentCoreDomEvents, ComponentCoreDomEventsTypes } from "./component-core-dom-events";
+import {
+  ComponentCoreDomEvents,
+  ComponentCoreDomEventsTypes,
+} from "./component-core-dom-events";
 import { ComponentCoreDomMethods } from "./component-core-dom-methods";
 import { ComponentCoreDomProperties } from "./component-core-dom-properties";
 import {
@@ -8,7 +11,7 @@ import {
 // Here're all the component types
 
 // Component Fun Returned Type
-type ComponentFunReturnedType = 
+type ComponentFunReturnedType =
   | string
   | [Record<string, number | string | boolean | null>, string];
 
@@ -22,11 +25,11 @@ interface ComponentObjRenderType {
     tag: string;
     element?: ComponentCoreElementTypes<any>;
   };
-  html:string;
-  template:string;
+  html: string;
+  template: string;
   states: any[];
-  parent:ComponentObjRenderType|null;
-  children?:ComponentObjRenderType[];
+  parent: ComponentObjRenderType | null;
+  children?: ComponentObjRenderType[];
   options: Record<string, number | string | boolean | null>;
 }
 
@@ -36,12 +39,15 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
   ele: {
     id: string;
     options: Record<string, number | string | boolean | null>;
-    template:string;
+    template: string;
     tag: ComponentCoreElementTags;
     element?: ComponentCoreElementTypes<ELE>;
   };
-  // render 
-  render:(options:Record<string, number | string | boolean | null>,template?:string)=>void,
+  // render
+  render: (
+    options: Record<string, number | string | boolean | null>,
+    template?: string
+  ) => void;
   // methods
   methods: ComponentCoreDomMethods;
   // Properties
@@ -56,9 +62,12 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     fun: ComponentCoreDomEventsTypes<T>
   ) => void;
   // removeEvent to remove the event
-  removeEvent:(
-    event: ComponentCoreDomEvents
-  ) => void;
+  removeEvent: (event: ComponentCoreDomEvents) => void;
+  // styles
+  // style one property
+  style: (prop:keyof CSSStyleDeclaration, value: string) => void;
+  // style one property
+  styles: (props: Partial<Record<keyof CSSStyleDeclaration,string>>) => void;
 }
 
 export type {

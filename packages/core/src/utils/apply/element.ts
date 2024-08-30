@@ -6,6 +6,7 @@ import {
 import { setComponentSetAttribute } from "./apply-get-set-attribute";
 import { setComponentRender } from "./apply-rerender";
 import { setComponentSetEvent } from "./apply-setEvent-removeEvent";
+import { setComponentStyle } from "./apply-style";
 import { setComponentDOMMethods } from "./component-set-methods";
 
 // component element method
@@ -28,6 +29,9 @@ function element(tag: ComponentCoreElementTags, this_obj: Eg) {
   // set the
   this_obj.ele.element = element;
 
+  // Setting the styles
+  setComponentStyle(this_obj);
+  
   // Setting the core methods
   setComponentDOMMethods(this_obj);
 
@@ -37,7 +41,7 @@ function element(tag: ComponentCoreElementTags, this_obj: Eg) {
   // Setting the setEvent method
   setComponentSetEvent(this_obj);
 
-  // Setting the render method 
+  // Setting the render method
   setComponentRender(this_obj);
 }
 
