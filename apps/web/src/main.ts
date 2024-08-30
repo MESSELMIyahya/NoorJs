@@ -14,20 +14,31 @@ const root = createRoot();
 
 function ButtonComponent(this: Component): FCRendered {
   element("button", this);
+  // styles
+  this.styles({
+    backgroundColor: "#e0e0e0",
+    borderRadius: "5px",
+    border: "none",
+    padding: "5px 10px",
+    color: "#010101",
+  });
 
   let times = state(0, this);
 
   this.setEvent("onClick", (e) => {
-    console.log("clicked :", times);
     times++;
-    if (times == 6) {
-      this.removeEvent("onClick");
-    } else {
-      this.render({ times },`increased {{times}}`);
-    }
+    this.render({ times });
+
+    const random = Math.floor(Math.random() * 5);
+
+    if (random == 1) this.style("backgroundColor", "lightgoldenrodyellow");
+    else if (random == 2) this.style("backgroundColor", "lightgreen");
+    else if (random == 3) this.style("backgroundColor", "lightblue");
+    else if (random == 4) this.style("backgroundColor", "lightsalmon");
+    else this.style("backgroundColor", "lightcyan");
+
   });
 
-  console.log(this.get("id"));
 
   return [{ times }, `count {{times}}`];
 }
