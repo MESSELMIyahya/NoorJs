@@ -37,6 +37,9 @@ function element(tag: ComponentCoreElementTags, this_obj: Eg) {
   // Setting the core dom methods
   setComponentDOMMethods(this_obj);
 
+  // Setting the state method
+  setComponentState(this_obj)
+
   // Setting the set (setAttribute) method
   setComponentSetAttribute(this_obj);
 

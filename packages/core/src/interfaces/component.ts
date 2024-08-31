@@ -8,6 +8,7 @@ import {
   ComponentCoreElementTags,
   ComponentCoreElementTypes,
 } from "./component-core-element-tags";
+import { ComponentStateMethodType } from "./state";
 // Here're all the component types
 
 // Component Fun Returned Type
@@ -32,7 +33,7 @@ interface ComponentObjRenderType {
   };
   html: string;
   template: string;
-  states: any[];
+  states:Record<string,any>;
   parent: ComponentObjRenderType | null;
   children?: ComponentObjRenderType[];
   options: Record<string, number | string | boolean | null>;
@@ -40,13 +41,13 @@ interface ComponentObjRenderType {
 
 // Component Obj Type
 interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
-  states: any[];
   ele: {
     id: string;
     options: Record<string, number | string | boolean | null>;
     template: string;
     tag: ComponentCoreElementTags;
     element?: ComponentCoreElementTypes<ELE>;
+    states:Record<string,any>;
     states_changes: Record<
       string,
       {
@@ -65,6 +66,10 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     options: Record<string, number | string | boolean | null>,
     template?: string
   ) => void;
+  // set state (vars) methods
+  state: ComponentStateMethodType;
+  // runs a function when var/vars get(s) changed
+  onChange: (fun: () => void,dep:Record<string,any>) => void;
   // lifecycle events
   // runs one time after the first rendered
   onMount: (fun: () => void) => void;

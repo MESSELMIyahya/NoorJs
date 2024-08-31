@@ -7,12 +7,11 @@ import {
   ComponentFunReturnedType,
 } from "./interfaces/component";
 import { element } from "./utils/apply/element";
-import { applyState } from "./utils/apply/apply-state";
 
 // Exporting the packages
 
 // Core functions/utils
-export { createRoot, renderRoot, element, applyState as state };
+export { createRoot, renderRoot, element };
 
 // Core types
 export type {

@@ -25,8 +25,8 @@ function componentGenerator(
       options: {},
       tag: "div",
       cycle: { init: [], mount: [], render: [] },
+      states:{}
     },
-    states: [],
     methods: {},
     get: {},
     set: {},
@@ -76,7 +76,7 @@ function componentGenerator(
     },
     html: rendered_template,
     options,
-    states: this_obj.states,
+    states: this_obj.ele.states,
     template: template,
     parent: null,
     children: [],
