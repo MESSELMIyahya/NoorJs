@@ -3,7 +3,19 @@ import { Component, element, FCRendered } from "@repo/core";
 function App(this: Component): FCRendered {
   element("p", this);
 
-  let [getCount, setCount] = this.state(0);
+  let [getCount, setCount, ref] = this.state(0);
+  let [getAge, setAge, ageRef] = this.state(20);
+
+  this.onChange(() => {
+    console.log("count changed", getCount());
+    if (getCount() / 5 == 1) {
+      setAge(getCount() + 3);
+    }
+  }, [ref]);
+
+  this.onChange(() => {
+    console.log("age changed", getAge());
+  }, [ageRef]);
 
   const buttonsIds = {
     b1: this.get("id") + "b1",
@@ -35,6 +47,8 @@ function App(this: Component): FCRendered {
     setCount(getCount() - 1);
     this.render({ count: getCount() });
   };
+
+  setAge(1);
 
   return [
     { count: getCount() },
