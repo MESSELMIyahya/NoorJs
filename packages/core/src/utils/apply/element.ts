@@ -5,6 +5,7 @@ import {
 } from "../../interfaces/component-core-element-tags";
 import { setComponentSetAttribute } from "./apply-get-set-attribute";
 import { setComponentLifecycleMethods } from "./apply-lifecycle-events";
+import { setComponentStateOnChange } from "./apply-onChange";
 import { setComponentRender } from "./apply-rerender";
 import { setComponentSetEvent } from "./apply-setEvent-removeEvent";
 import { setComponentState } from "./apply-state";
@@ -26,7 +27,7 @@ function element(tag: ComponentCoreElementTags, this_obj: Eg) {
   element.id = this_obj.ele.id;
 
   //  states/vars
-  this_obj.states = [];
+  this_obj.states = {};
 
   // set the
   this_obj.ele.element = element;
@@ -51,6 +52,9 @@ function element(tag: ComponentCoreElementTags, this_obj: Eg) {
 
   // Setting the lifecycle methods
   setComponentLifecycleMethods(this_obj);
+
+  // Setting the states onChange
+  setComponentStateOnChange(this_obj)
 }
 
 export { element };

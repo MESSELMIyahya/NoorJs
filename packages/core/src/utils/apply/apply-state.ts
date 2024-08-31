@@ -28,15 +28,28 @@ function setComponentState(this_obj: ComponentObjType<any>) {
 
     // setter function to set new values to the state
     const setter: ComponentStateMethodSetterType<T> = (value) => {
+      const oldValue = states[name];
+
+      // set the new value to the prop
       if (value instanceof Function) {
         states[name] = value(states[name]);
       } else {
         states[name] = value;
       }
+
+      // run the onchange function of this property
+      const change_obj = this_obj.ele?.states_changes[name] || undefined;
+      if (change_obj && states[name] != oldValue) {
+        // if change_obj exists
+        // run the methods
+        change_obj.changes.forEach((fun) => fun());
+      }
+
+      // return the value
       return states[name];
     };
 
-    return [getter, setter]; // => return the pointer var
+    return [getter, setter, name]; // => return getter,setter and ref
   };
 
   // assigning the state_method to the this_obj state

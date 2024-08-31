@@ -25,7 +25,8 @@ function componentGenerator(
       options: {},
       tag: "div",
       cycle: { init: [], mount: [], render: [] },
-      states:{}
+      states:{},
+      states_changes:{}
     },
     methods: {},
     get: {},

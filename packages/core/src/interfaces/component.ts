@@ -51,7 +51,6 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     states_changes: Record<
       string,
       {
-        var: any;
         changes: (() => void)[];
       }
     >;
@@ -69,7 +68,7 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
   // set state (vars) methods
   state: ComponentStateMethodType;
   // runs a function when var/vars get(s) changed
-  onChange: (fun: () => void,dep:Record<string,any>) => void;
+  onChange: (fun: () => void,dep:string[]) => void;
   // lifecycle events
   // runs one time after the first rendered
   onMount: (fun: () => void) => void;
