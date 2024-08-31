@@ -7,6 +7,7 @@ import { setComponentSetAttribute } from "./apply-get-set-attribute";
 import { setComponentLifecycleMethods } from "./apply-lifecycle-events";
 import { setComponentStateOnChange } from "./apply-onChange";
 import { setComponentRender } from "./apply-rerender";
+import { setComponentSetViews } from "./apply-set-views";
 import { setComponentSetEvent } from "./apply-setEvent-removeEvent";
 import { setComponentState } from "./apply-state";
 import { setComponentStyle } from "./apply-style";
@@ -35,11 +36,14 @@ function element(tag: ComponentCoreElementTags, this_obj: Eg) {
   // Setting the styles methods
   setComponentStyle(this_obj);
 
+  // Setting hte set view methods
+  setComponentSetViews(this_obj);
+
   // Setting the core dom methods
   setComponentDOMMethods(this_obj);
 
   // Setting the state method
-  setComponentState(this_obj)
+  setComponentState(this_obj);
 
   // Setting the set (setAttribute) method
   setComponentSetAttribute(this_obj);
@@ -54,7 +58,7 @@ function element(tag: ComponentCoreElementTags, this_obj: Eg) {
   setComponentLifecycleMethods(this_obj);
 
   // Setting the states onChange
-  setComponentStateOnChange(this_obj)
+  setComponentStateOnChange(this_obj);
 }
 
 export { element };

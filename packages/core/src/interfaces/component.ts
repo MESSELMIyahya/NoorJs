@@ -33,7 +33,7 @@ interface ComponentObjRenderType {
   };
   html: string;
   template: string;
-  states:Record<string,any>;
+  states: Record<string, any>;
   parent: ComponentObjRenderType | null;
   children?: ComponentObjRenderType[];
   options: Record<string, number | string | boolean | null>;
@@ -47,7 +47,7 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     template: string;
     tag: ComponentCoreElementTags;
     element?: ComponentCoreElementTypes<ELE>;
-    states:Record<string,any>;
+    states: Record<string, any>;
     states_changes: Record<
       string,
       {
@@ -68,7 +68,7 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
   // set state (vars) methods
   state: ComponentStateMethodType;
   // runs a function when var/vars get(s) changed
-  onChange: (fun: () => void,dep:string[]) => void;
+  onChange: (fun: () => void, dep: string[]) => void;
   // lifecycle events
   // runs one time after the first rendered
   onMount: (fun: () => void) => void;
@@ -91,6 +91,11 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
   ) => void;
   // removeEvent to remove the event
   removeEvent: (event: ComponentCoreDomEvents) => void;
+  // view
+  // setView to set the innerHTML
+  setView: (view: string) => void;
+  // setTextView to set the innerText
+  setTextView: (view: string) => void;
   // styles
   // style one property
   style: (prop: keyof CSSStyleDeclaration, value: string) => void;
