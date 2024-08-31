@@ -7,11 +7,12 @@ import {
   ComponentFunReturnedType,
 } from "./interfaces/component";
 import { element } from "./utils/apply/element";
+import { ComponentCreator } from "./utils/component/componentCreator";
 
 // Exporting the packages
 
 // Core functions/utils
-export { createRoot, renderRoot, element };
+export { createRoot, renderRoot, element, ComponentCreator };
 
 // Core types
 export type {
