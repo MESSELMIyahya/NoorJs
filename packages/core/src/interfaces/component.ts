@@ -24,6 +24,11 @@ interface ComponentObjRenderType {
     id: string;
     tag: string;
     element?: ComponentCoreElementTypes<any>;
+    cycle: {
+      init: (() => void)[];
+      mount: (() => void)[];
+      render: (() => void)[];
+    };
   };
   html: string;
   template: string;
@@ -42,12 +47,31 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     template: string;
     tag: ComponentCoreElementTags;
     element?: ComponentCoreElementTypes<ELE>;
+    states_changes: Record<
+      string,
+      {
+        var: any;
+        changes: (() => void)[];
+      }
+    >;
+    cycle: {
+      init: (() => void)[];
+      mount: (() => void)[];
+      render: (() => void)[];
+    };
   };
   // render
   render: (
     options: Record<string, number | string | boolean | null>,
     template?: string
   ) => void;
+  // lifecycle events
+  // runs one time after the first rendered
+  onMount: (fun: () => void) => void;
+  // runs when the component initialized
+  onInit: (fun: () => void) => void;
+  // runs when every render
+  onRender: (fun: () => void) => void;
   // methods
   methods: ComponentCoreDomMethods;
   // Properties
@@ -65,9 +89,9 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
   removeEvent: (event: ComponentCoreDomEvents) => void;
   // styles
   // style one property
-  style: (prop:keyof CSSStyleDeclaration, value: string) => void;
+  style: (prop: keyof CSSStyleDeclaration, value: string) => void;
   // style one property
-  styles: (props: Partial<Record<keyof CSSStyleDeclaration,string>>) => void;
+  styles: (props: Partial<Record<keyof CSSStyleDeclaration, string>>) => void;
 }
 
 export type {

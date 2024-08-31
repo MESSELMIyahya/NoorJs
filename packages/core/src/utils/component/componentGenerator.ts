@@ -7,7 +7,7 @@ import NJFError from "../error/createError";
 import { componentReturnedHandler } from "./componentReturnedHandler";
 import { templateRenderer } from "../template/template";
 import { elementIdGenerator } from "../global/elemnent-id-generator";
-
+import { componentLifecycleInit } from "./componentLifecycle";
 
 // component generator
 
@@ -17,10 +17,15 @@ function componentGenerator(
   // if the window object is undefined
   if (window == undefined) throw new NJFError("window object is undefined");
 
-  const componentId = elementIdGenerator()
+  const componentId = elementIdGenerator();
 
-  const this_obj: ComponentObjType = Object.create({
-    ele: { id: componentId, options: {}, tag: "div" },
+  const this_obj: ComponentObjType<any> = Object.create({
+    ele: {
+      id: componentId,
+      options: {},
+      tag: "div",
+      cycle: { init: [], mount: [], render: [] },
+    },
     states: [],
     methods: {},
     get: {},
@@ -39,11 +44,15 @@ function componentGenerator(
       "NotCalled"
     );
   }
+  // run the init lifecycle methods
+  componentLifecycleInit(this_obj.ele.cycle.init);
+
   // template
   let options: Record<string, null> = {};
   let template = "";
   // handling the returned value form the component
   const res = componentReturnedHandler(called_component);
+
   // setting the options and template
   options = res.options;
   template = res.template;
@@ -51,16 +60,16 @@ function componentGenerator(
   // setting the options to the this_obj options
   this_obj.ele.options = options;
 
-  // setting the template to the this_obj template 
-  this_obj.ele.template = template ;
+  // setting the template to the this_obj template
+  this_obj.ele.template = template;
 
   // generate the template
   const rendered_template = templateRenderer(template, options);
 
-
   // return the obj to be rendered
   return {
     ele: {
+      cycle: this_obj.ele.cycle,
       id: this_obj.ele.id,
       tag: this_obj.ele.tag,
       element: this_obj.ele.element,
@@ -68,8 +77,8 @@ function componentGenerator(
     html: rendered_template,
     options,
     states: this_obj.states,
-    template:template,
-    parent:null,
+    template: template,
+    parent: null,
     children: [],
   };
 }

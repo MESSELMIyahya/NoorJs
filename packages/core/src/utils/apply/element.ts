@@ -4,8 +4,10 @@ import {
   ComponentCoreElementTypes,
 } from "../../interfaces/component-core-element-tags";
 import { setComponentSetAttribute } from "./apply-get-set-attribute";
+import { setComponentLifecycleMethods } from "./apply-lifecycle-events";
 import { setComponentRender } from "./apply-rerender";
 import { setComponentSetEvent } from "./apply-setEvent-removeEvent";
+import { setComponentState } from "./apply-state";
 import { setComponentStyle } from "./apply-style";
 import { setComponentDOMMethods } from "./component-set-methods";
 
@@ -29,10 +31,10 @@ function element(tag: ComponentCoreElementTags, this_obj: Eg) {
   // set the
   this_obj.ele.element = element;
 
-  // Setting the styles
+  // Setting the styles methods
   setComponentStyle(this_obj);
-  
-  // Setting the core methods
+
+  // Setting the core dom methods
   setComponentDOMMethods(this_obj);
 
   // Setting the set (setAttribute) method
@@ -43,6 +45,9 @@ function element(tag: ComponentCoreElementTags, this_obj: Eg) {
 
   // Setting the render method
   setComponentRender(this_obj);
+
+  // Setting the lifecycle methods
+  setComponentLifecycleMethods(this_obj);
 }
 
 export { element };

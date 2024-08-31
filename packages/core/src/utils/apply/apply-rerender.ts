@@ -12,6 +12,7 @@ function setComponentRender(this_obj: ComponentObjType<any>) {
     // new render object
     const renderObj: ComponentObjRenderType = {
       ele: {
+        cycle: this_obj.ele.cycle,
         id: this_obj.ele.id,
         tag: this_obj.ele.tag,
         element: this_obj.ele.element,
