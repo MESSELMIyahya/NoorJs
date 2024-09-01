@@ -8,7 +8,7 @@ import { rerenderComponent } from "../component/renderComponent";
 
 function setComponentRender(this_obj: ComponentObjType<any>) {
   // setting the rerender function
-  this_obj.render = (options, template): boolean => {
+  this_obj.render = (): boolean => {
     // new render object
     const renderObj: ComponentObjRenderType = {
       ele: {
@@ -18,14 +18,11 @@ function setComponentRender(this_obj: ComponentObjType<any>) {
         element: this_obj.ele.element,
       },
       html: this_obj.ele.template,
-      options: { ...this_obj.ele.options, ...options },
+      options: { ...this_obj.ele.options },
       states: this_obj.ele.states,
       parent: null,
       children: [...this_obj.ele.getChildren()],
-      template:
-        template && template != this_obj.ele.template
-          ? template
-          : this_obj.ele.template,
+      template: this_obj.ele.template,
     };
     // rerender the component
     rerenderComponent(renderObj);

@@ -71,10 +71,7 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     };
   };
   // render
-  render: (
-    options: Record<string, number | string | boolean | null>,
-    template?: string
-  ) => void;
+  render: () => void;
   // set state (vars) methods
   state: ComponentStateMethodType;
   // runs a function when var/vars get(s) changed
