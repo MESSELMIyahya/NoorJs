@@ -1,16 +1,18 @@
 import { ComponentFunType, ComponentObjRenderType } from "./component";
+import { ComponentCoreDomEvents } from "./component-core-dom-events";
+import { ComponentCoreDomMethods } from "./component-core-dom-methods";
+import { ComponentCoreDomProperties, ComponentCoreDomPropertiesTypes } from "./component-core-dom-properties";
 import { ComponentCoreElementTags } from "./component-core-element-tags";
 import { ElementObjRenderType } from "./element";
 
 // Types for the component creator logic
 
 type ComponentCreatorElementType = ComponentCoreElementTags | ComponentFunType;
-type ComponentCreatorPropsType = Partial<
-  Record<
-    keyof HTMLElement & keyof HTMLInputElement & keyof HTMLFormElement,
-    any
-  >
->;
+type ComponentCreatorPropsAllType =
+  | ComponentCoreDomPropertiesTypes
+  | Record<ComponentCoreDomEvents,any>;
+
+type ComponentCreatorPropsType = Partial<ComponentCreatorPropsAllType>;
 type ComponentCreatorChildrenType =
   | ComponentCreatorReturnedType[]
   | ComponentCreatorReturnedType
