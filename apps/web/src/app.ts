@@ -50,15 +50,3 @@ function App(this: Component): FCRendered {
 }
 
 export default App;
-
-/*
-    // goal 1 
-    events 
-    onMount : (()=>void)=>void // => runs after the first render
-    onInit : (()=>void)=>void // => runs after the initialize of the component 
-
-    // goal 2 
-    add onChange : (var:any,(newValue)=>void)=>void // => runs when ever a specific var(state) gets changed (will Created using Proxy Object)
-
-    // goal 3 => add JSX
-*/
