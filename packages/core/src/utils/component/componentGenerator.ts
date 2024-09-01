@@ -1,11 +1,11 @@
 import {
+  ComponentChildrenType,
   ComponentFunType,
   ComponentObjRenderType,
   ComponentObjType,
 } from "../../interfaces/component";
 import NJFError from "../error/createError";
 import { componentReturnedHandler } from "./componentReturnedHandler";
-import { templateRenderer } from "../template/template";
 import { elementIdGenerator } from "../global/elemnent-id-generator";
 import { componentLifecycleInit } from "./componentLifecycle";
 
@@ -25,8 +25,9 @@ function componentGenerator(
       options: {},
       tag: "div",
       cycle: { init: [], mount: [], render: [] },
-      states:{},
-      states_changes:{}
+      states: {},
+      children: [],
+      states_changes: {},
     },
     methods: {},
     get: {},
@@ -51,12 +52,14 @@ function componentGenerator(
   // template
   let options: Record<string, null> = {};
   let template = "";
+  let children: ComponentChildrenType[] = [];
   // handling the returned value form the component
   const res = componentReturnedHandler(called_component);
 
   // setting the options and template
   options = res.options;
   template = res.template;
+  children = res.children ;
 
   // setting the options to the this_obj options
   this_obj.ele.options = options;
@@ -64,8 +67,11 @@ function componentGenerator(
   // setting the template to the this_obj template
   this_obj.ele.template = template;
 
+  // setting the children to the this_obj children
+  this_obj.ele.children = children;
+
   // generate the template
-  const rendered_template = templateRenderer(template, options);
+  // const rendered_template = templateRenderer(template, options);
 
   // return the obj to be rendered
   return {
@@ -75,12 +81,12 @@ function componentGenerator(
       tag: this_obj.ele.tag,
       element: this_obj.ele.element,
     },
-    html: rendered_template,
+    html: this_obj.ele.template,
     options,
     states: this_obj.ele.states,
     template: template,
     parent: null,
-    children: [],
+    children: [...children],
   };
 }
 

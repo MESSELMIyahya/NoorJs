@@ -8,13 +8,23 @@ import {
   ComponentCoreElementTags,
   ComponentCoreElementTypes,
 } from "./component-core-element-tags";
+import { ElementObjRenderType } from "./element";
 import { ComponentStateMethodType } from "./state";
 // Here're all the component types
+
+// Children Type
+
+type ComponentChildrenType = ComponentObjRenderType | ElementObjRenderType;
 
 // Component Fun Returned Type
 type ComponentFunReturnedType =
   | string
-  | [Record<string, number | string | boolean | null>, string];
+  | ComponentChildrenType
+  | ComponentChildrenType[];
+// | [
+//     Record<string, number | string | boolean | null>,
+//     ComponentObjRenderType[] | string,
+//   ];
 
 // Component Fun Type
 type ComponentFunType = () => ComponentFunReturnedType;
@@ -35,7 +45,7 @@ interface ComponentObjRenderType {
   template: string;
   states: Record<string, any>;
   parent: ComponentObjRenderType | null;
-  children?: ComponentObjRenderType[];
+  children?: ComponentChildrenType[];
   options: Record<string, number | string | boolean | null>;
 }
 
@@ -48,6 +58,7 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     tag: ComponentCoreElementTags;
     element?: ComponentCoreElementTypes<ELE>;
     states: Record<string, any>;
+    children: ComponentChildrenType[];
     states_changes: Record<
       string,
       {
@@ -108,4 +119,5 @@ export type {
   ComponentObjRenderType,
   ComponentFunReturnedType,
   ComponentObjType,
+  ComponentChildrenType,
 };

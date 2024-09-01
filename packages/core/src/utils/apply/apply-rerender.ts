@@ -17,11 +17,11 @@ function setComponentRender(this_obj: ComponentObjType<any>) {
         tag: this_obj.ele.tag,
         element: this_obj.ele.element,
       },
-      html: "",
+      html: this_obj.ele.template,
       options: { ...this_obj.ele.options, ...options },
-      states: this_obj.states,
+      states: this_obj.ele.states,
       parent: null,
-      children: [],
+      children: [...this_obj.ele.children],
       template:
         template && template != this_obj.ele.template
           ? template
