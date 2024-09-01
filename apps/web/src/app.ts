@@ -3,7 +3,7 @@ import { Component, ComponentCreator, element, FCRendered } from "@repo/core";
 function App(this: Component): FCRendered {
   element("div", this);
 
-  let [getCount, setCount, countRef] = this.state(0);
+  const [getCount, setCount, countRef] = this.state(0);
 
   this.onInit(() => {
     console.log("initialized");
@@ -28,23 +28,14 @@ function App(this: Component): FCRendered {
 
   // update the span element when ever the count state gets changed
   this.onChange(() => {
-    const span = document.getElementById("counter")!;
-    span.innerText = getCount().toString();
+    this.render({});
   }, [countRef]);
 
-  return [
-    ComponentCreator("span", { id: "counter" }, getCount() + ""),
+  return () => [
+    ComponentCreator("span", {}, getCount() + ""),
     ComponentCreator("div", {}, [
-      ComponentCreator(
-        "button",
-        { id: "inc", onclick: increment },
-        "Increment"
-      ),
-      ComponentCreator(
-        "button",
-        { id: "dec", onclick: decrement },
-        "decrement"
-      ),
+      ComponentCreator("button", { onclick: increment }, "Increment"),
+      ComponentCreator("button", { onclick: decrement }, "decrement"),
     ]),
   ];
 }
