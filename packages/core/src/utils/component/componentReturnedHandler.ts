@@ -11,9 +11,15 @@ interface ReturnedType {
   options: Record<string, null>;
   template: string;
   children: ComponentChildrenType[];
+  getter: () => ComponentChildrenType[];
 }
 
-function componentReturnedHandler(ret: ComponentFunReturnedType): ReturnedType {
+function componentReturnedHandler(
+  retFun: ComponentFunReturnedType
+): ReturnedType {
+  // getting the output the view
+  const ret = retFun();
+
   // checking the options/vars
   if (!ret) {
     throw new NJFError(
@@ -24,9 +30,8 @@ function componentReturnedHandler(ret: ComponentFunReturnedType): ReturnedType {
   // check the ret type
   // JSX (array of JSX)
   if (typeof ret !== "string" && Array.isArray(ret)) {
-    console.log('here');
-    console.log(ret);
     return {
+      getter: () => retFun() as ComponentChildrenType[],
       children: [...ret],
       options: {},
       template: "",
@@ -35,6 +40,7 @@ function componentReturnedHandler(ret: ComponentFunReturnedType): ReturnedType {
   // JSX
   else if (typeof ret !== "string") {
     return {
+      getter: () => [retFun()] as ComponentChildrenType[],
       children: [ret],
       options: {},
       template: "",
@@ -43,6 +49,7 @@ function componentReturnedHandler(ret: ComponentFunReturnedType): ReturnedType {
   // String
   else {
     return {
+      getter: () => [],
       children: [],
       options: {},
       template: ret,

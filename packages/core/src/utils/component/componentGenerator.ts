@@ -49,17 +49,9 @@ function componentGenerator(
   // run the init lifecycle methods
   componentLifecycleInit(this_obj.ele.cycle.init);
 
-  // template
-  let options: Record<string, null> = {};
-  let template = "";
-  let children: ComponentChildrenType[] = [];
   // handling the returned value form the component
-  const res = componentReturnedHandler(called_component);
-
-  // setting the options and template
-  options = res.options;
-  template = res.template;
-  children = res.children ;
+  const { children, getter, options, template } =
+    componentReturnedHandler(called_component);
 
   // setting the options to the this_obj options
   this_obj.ele.options = options;
@@ -67,8 +59,8 @@ function componentGenerator(
   // setting the template to the this_obj template
   this_obj.ele.template = template;
 
-  // setting the children to the this_obj children
-  this_obj.ele.children = children;
+  // setting the getChildren to the this_obj getChildren
+  this_obj.ele.getChildren = getter;
 
   // generate the template
   // const rendered_template = templateRenderer(template, options);

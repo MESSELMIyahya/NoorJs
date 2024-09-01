@@ -17,7 +17,7 @@ import { ComponentStateMethodType } from "./state";
 type ComponentChildrenType = ComponentObjRenderType | ElementObjRenderType;
 
 // Component Fun Returned Type
-type ComponentFunReturnedType =
+type ComponentFunReturnedType = ()=>
   | string
   | ComponentChildrenType
   | ComponentChildrenType[];
@@ -58,7 +58,7 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     tag: ComponentCoreElementTags;
     element?: ComponentCoreElementTypes<ELE>;
     states: Record<string, any>;
-    children: ComponentChildrenType[];
+    getChildren:()=> ComponentChildrenType[];
     states_changes: Record<
       string,
       {

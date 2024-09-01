@@ -21,7 +21,7 @@ function setComponentRender(this_obj: ComponentObjType<any>) {
       options: { ...this_obj.ele.options, ...options },
       states: this_obj.ele.states,
       parent: null,
-      children: [...this_obj.ele.children],
+      children: [...this_obj.ele.getChildren()],
       template:
         template && template != this_obj.ele.template
           ? template
