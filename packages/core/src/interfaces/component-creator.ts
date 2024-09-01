@@ -7,6 +7,7 @@ import { ElementObjRenderType } from "./element";
 // Types for the component creator logic
 
 type ComponentCreatorElementType = ComponentCoreElementTags | ComponentFunType;
+
 type ComponentCreatorPropsAllType =
   | ComponentCoreDomPropertiesTypes
   | ComponentCoreDomEventsMethodsTypes;

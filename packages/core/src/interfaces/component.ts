@@ -17,17 +17,16 @@ import { ComponentStateMethodType } from "./state";
 type ComponentChildrenType = ComponentObjRenderType | ElementObjRenderType;
 
 // Component Fun Returned Type
-type ComponentFunReturnedType = ()=>
+type ComponentFunReturnedType = () =>
   | string
   | ComponentChildrenType
   | ComponentChildrenType[];
-// | [
-//     Record<string, number | string | boolean | null>,
-//     ComponentObjRenderType[] | string,
-//   ];
 
 // Component Fun Type
-type ComponentFunType = () => ComponentFunReturnedType;
+type ComponentFunType<T extends any | undefined | Record<string, any> = any> = (
+  this: ComponentObjType<"div"> | any,
+  props: T
+) => ComponentFunReturnedType;
 
 // Component Obj Type
 interface ComponentObjRenderType {
@@ -58,7 +57,7 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     tag: ComponentCoreElementTags;
     element?: ComponentCoreElementTypes<ELE>;
     states: Record<string, any>;
-    getChildren:()=> ComponentChildrenType[];
+    getChildren: () => ComponentChildrenType[];
     states_changes: Record<
       string,
       {

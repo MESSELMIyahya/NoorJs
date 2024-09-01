@@ -1,7 +1,6 @@
 import { ComponentFunType } from "../../interfaces/component";
 import { ComponentCoreElementTags } from "../../interfaces/component-core-element-tags";
 import {
-  ComponentCreatorElementType,
   ComponentCreatorPropsType,
   ComponentCreatorChildrenType,
   ComponentCreatorReturnedType,
@@ -10,9 +9,15 @@ import { componentGenerator } from "./componentGenerator";
 import { elementGenerator } from "./elementGenerator";
 // Function to create a component element
 
-function ComponentCreator(
-  type: ComponentCreatorElementType,
-  props: ComponentCreatorPropsType,
+function ComponentCreator<
+  T extends ComponentFunType | ComponentCoreElementTags,
+>(
+  type: T,
+  props: T extends ComponentFunType
+    ? Parameters<T>[0] extends undefined
+      ? Record<string, any>
+      : Parameters<T>[0]
+    : ComponentCreatorPropsType,
   children: ComponentCreatorChildrenType
 ): ComponentCreatorReturnedType {
   // Check if the component is html element or component function
@@ -30,11 +35,11 @@ function ComponentCreator(
     renderObj = elementGenerator(
       type as ComponentCoreElementTags,
       element,
-      props
+      props as ComponentCreatorPropsType
     );
   } else {
     // generating the component
-    renderObj = componentGenerator(type as ComponentFunType);
+    renderObj = componentGenerator(type as ComponentFunType, props);
   }
 
   // setting the parent to null

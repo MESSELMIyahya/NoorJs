@@ -11,8 +11,9 @@ import { componentLifecycleInit } from "./componentLifecycle";
 
 // component generator
 
-function componentGenerator(
-  component: ComponentFunType
+function componentGenerator<T extends ComponentFunType>(
+  component: ComponentFunType,
+  params?: Parameters<T>[0]
 ): ComponentObjRenderType {
   // if the window object is undefined
   if (window == undefined) throw new NJFError("window object is undefined");
@@ -37,7 +38,7 @@ function componentGenerator(
   const component_bind = component.bind(this_obj);
 
   //   call the component
-  const called_component = component_bind();
+  const called_component = component_bind(params);
 
   // throw error if the dev didn't call the element function inside the component
   if (!this_obj.ele.element) {
