@@ -1,4 +1,6 @@
 import { Component, ComponentCreator, element, FCRendered } from "@repo/core";
+import ButtonComponent from "./button";
+import NavbarComponent from "./navbar";
 
 function App(this: Component): FCRendered {
   element("div", this);
@@ -31,25 +33,8 @@ function App(this: Component): FCRendered {
     this.render({});
   }, [countRef]);
 
-  const buttonStyle: Partial<CSSStyleDeclaration> = {
-    backgroundColor: "#fbeee0",
-    border: "4px solid #422800",
-    borderRadius: "30px",
-    boxShadow: "#d7cdc3 4px 4px 0 0",
-    color: "#422800",
-    cursor: "pointer",
-    display: "inline-block",
-    fontWeight: "600",
-    fontSize: " 18px",
-    padding: "0 18px",
-    lineHeight: " 50px",
-    textAlign: "center",
-    textDecoration: "none",
-    userSelect: "none",
-    touchAction: "manipulation",
-  };
-
   return () => [
+    ComponentCreator(NavbarComponent, { count: getCount() }, []),
     ComponentCreator(
       "span",
       {
@@ -72,14 +57,14 @@ function App(this: Component): FCRendered {
       },
       [
         ComponentCreator(
-          "button",
-          { onClick: increment, style: buttonStyle },
-          "Increment"
+          ButtonComponent,
+          { text: "increment", fun: increment },
+          []
         ),
         ComponentCreator(
-          "button",
-          { onClick: decrement, style: buttonStyle },
-          "decrement"
+          ButtonComponent,
+          { text: "decrement", fun: decrement },
+          []
         ),
       ]
     ),
