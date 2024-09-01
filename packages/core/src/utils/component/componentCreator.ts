@@ -39,7 +39,9 @@ function ComponentCreator(
 
   // setting the parent to null
   renderObj.parent = null;
-  const children_render_objs: ComponentCreatorReturnedType[] = [];
+  const children_render_objs: ComponentCreatorReturnedType[] = [
+    ...(renderObj.children || []),
+  ];
 
   // checking the children
   // array of children
