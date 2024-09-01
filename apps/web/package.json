@@ -10,8 +10,7 @@
     "lint": "eslint \"src/**/*.ts\""
   },
   "dependencies": {
-    "@repo/core":"*",
-    "@repo/ui": "*"
+    "@noorjs/core":"*"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",

@@ -1,4 +1,4 @@
-import { ComponentCreator, createRoot, renderRoot } from "@repo/core";
+import { ComponentCreator, createRoot, renderRoot } from "@noorjs/core";
 import App from "./app";
 
 // creating the root

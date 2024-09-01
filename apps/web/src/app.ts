@@ -1,4 +1,4 @@
-import { Component, ComponentCreator, element, FCRendered } from "@repo/core";
+import { Component, ComponentCreator, element, FCRendered } from "@noorjs/core";
 import ButtonComponent from "./button";
 import NavbarComponent from "./navbar";
 
