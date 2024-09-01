@@ -1,10 +1,11 @@
 {
-  "name": "@repo/core",
+  "name": "@noorjs/core",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
-    "build": "tsc"
+    "build": "tsc",
+    "build:prod": "tsup src/index.ts --format cjs,esm --dts"
   },
   "main": "./src/index.ts",
   "exports": {
