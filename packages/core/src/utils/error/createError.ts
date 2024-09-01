@@ -2,12 +2,12 @@
 
 type ErrorNames = "NotCalled" | "NotFound" | "NotInitialized";
 
-class NJFError extends Error {
+class NoorError extends Error {
   constructor(message: string, ErrorNames: ErrorNames = "NotFound") {
     super(message);
     this.message =  message;
-    this.name = "NJF " + ErrorNames;
+    this.name = "Noor " + ErrorNames;
   }
 }
 
-export default NJFError;
+export default NoorError;
