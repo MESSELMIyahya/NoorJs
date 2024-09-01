@@ -79,6 +79,87 @@ type ComponentCoreDomEvents =
   | "onWaiting"
   | "onWheel";
 
+  // the core html events methods types
+interface ComponentCoreDomEventsMethodsTypes {
+
+ onAbort : HTMLElement["onabort"] ;
+ onAnimationEnd : HTMLElement["onanimationend"] ;
+ onAnimationIteration : HTMLElement["onanimationiteration"] ;
+ onAnimationStart : HTMLElement["onanimationstart"] ;
+ onAuxClick : HTMLElement["onauxclick"] ;
+ onBeforeInput : HTMLElement["onbeforeinput"] ;
+ onBlur : HTMLElement["onblur"] ;
+ onCanPlay : HTMLElement["oncanplay"] ;
+ onCanPlayThrough : HTMLElement["oncanplaythrough"] ;
+ onChange : HTMLElement["onchange"] ;
+ onClick : HTMLElement["onclick"] ;
+ onContextMenu : HTMLElement["oncontextmenu"] ;
+ onCopy : HTMLElement["oncopy"] ;
+ onCut : HTMLElement["oncut"] ;
+ onDblClick : HTMLElement["ondblclick"] ;
+ onDrag : HTMLElement["ondrag"] ;
+ onDragEnd : HTMLElement["ondragend"] ;
+ onDragEnter : HTMLElement["ondragenter"] ;
+ onDragLeave : HTMLElement["ondragleave"] ;
+ onDragOver : HTMLElement["ondragover"] ;
+ onDragStart : HTMLElement["ondragstart"] ;
+ onDrop : HTMLElement["ondrop"] ;
+ onDurationChange : HTMLElement["ondurationchange"] ;
+ onEmptied : HTMLElement["onemptied"] ;
+ onEnded : HTMLElement["onended"] ;
+ onError : HTMLElement["onerror"] ;
+ onFocus : HTMLElement["onfocus"] ;
+ onFormData : HTMLElement["onformdata"] ;
+ onInput : HTMLElement["oninput"] ;
+ onInvalid : HTMLElement["oninvalid"] ;
+ onKeyDown : HTMLElement["onkeydown"] ;
+ onKeyPress : HTMLElement["onkeypress"] ;
+ onKeyUp : HTMLElement["onkeyup"] ;
+ onLoad : HTMLElement["onload"] ;
+ onLoadedData : HTMLElement["onloadeddata"] ;
+ onLoadedMetadata : HTMLElement["onloadedmetadata"] ;
+ onLoadStart : HTMLElement["onloadstart"] ;
+ onMousedown : HTMLElement["onmousedown"] ;
+ onMouseEnter : HTMLElement["onmouseenter"] ;
+ onMouseLeave : HTMLElement["onmouseleave"] ;
+ onMouseMove : HTMLElement["onmousemove"] ;
+ onMouseOut : HTMLElement["onmouseout"] ;
+ onMouseOver : HTMLElement["onmouseover"] ;
+ onMouseUp : HTMLElement["onmouseup"] ;
+ onPaste : HTMLElement["onpaste"] ;
+ onPause : HTMLElement["onpause"] ;
+ onPlay : HTMLElement["onplay"] ;
+ onPlaying : HTMLElement["onplaying"] ;
+ onPointerDown : HTMLElement["onpointerdown"] ;
+ onPointerEnter : HTMLElement["onpointerenter"] ;
+ onPointerLeave : HTMLElement["onpointerleave"] ;
+ onPointerMove : HTMLElement["onpointermove"] ;
+ onPointerOut : HTMLElement["onpointerout"] ;
+ onPointerOver : HTMLElement["onpointerover"] ;
+ onPointerUp : HTMLElement["onpointerup"] ;
+ onProgress : HTMLElement["onprogress"] ;
+ onRateChange : HTMLElement["onratechange"] ;
+ onReset : HTMLElement["onreset"] ;
+ onResize : HTMLElement["onresize"] ;
+ onScroll : HTMLElement["onscroll"] ;
+ onSeeked : HTMLElement["onseeked"] ;
+ onSeeking : HTMLElement["onseeking"] ;
+ onSelect : HTMLElement["onselect"] ;
+ onStalled : HTMLElement["onstalled"] ;
+ onSubmit : HTMLElement["onsubmit"] ;
+ onSuspend : HTMLElement["onsuspend"] ;
+ onTimeUpdate : HTMLElement["ontimeupdate"] ;
+ onToggle : HTMLElement["ontoggle"] ;
+ onTouchCancel : HTMLElement["ontouchcancel"] ;
+ onTouchEnd : HTMLElement["ontouchend"] ;
+ onTouchMove : HTMLElement["ontouchmove"] ;
+ onTouchStart : HTMLElement["ontouchstart"] ;
+ onTransitionEnd : HTMLElement["ontransitionend"] ;
+ onVolumeChange : HTMLElement["onvolumechange"] ;
+ onWaiting : HTMLElement["onwaiting"] ;
+ onWheel : HTMLElement["onwheel"] ;
+}
+
 // the core html events types
 
 type ComponentCoreDomEventsTypes<T extends ComponentCoreDomEvents> =
@@ -160,4 +241,8 @@ type ComponentCoreDomEventsTypes<T extends ComponentCoreDomEvents> =
   T extends "onWheel" ? HTMLElement["onwheel"] :
   never;
 
-export type { ComponentCoreDomEvents, ComponentCoreDomEventsTypes };
+export type { 
+  ComponentCoreDomEvents, 
+  ComponentCoreDomEventsTypes,
+  ComponentCoreDomEventsMethodsTypes 
+};

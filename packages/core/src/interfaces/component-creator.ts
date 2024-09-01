@@ -1,7 +1,6 @@
 import { ComponentFunType, ComponentObjRenderType } from "./component";
-import { ComponentCoreDomEvents } from "./component-core-dom-events";
-import { ComponentCoreDomMethods } from "./component-core-dom-methods";
-import { ComponentCoreDomProperties, ComponentCoreDomPropertiesTypes } from "./component-core-dom-properties";
+import { ComponentCoreDomEventsMethodsTypes } from "./component-core-dom-events";
+import { ComponentCoreDomPropertiesTypes } from "./component-core-dom-properties";
 import { ComponentCoreElementTags } from "./component-core-element-tags";
 import { ElementObjRenderType } from "./element";
 
@@ -10,7 +9,7 @@ import { ElementObjRenderType } from "./element";
 type ComponentCreatorElementType = ComponentCoreElementTags | ComponentFunType;
 type ComponentCreatorPropsAllType =
   | ComponentCoreDomPropertiesTypes
-  | Record<ComponentCoreDomEvents,any>;
+  | ComponentCoreDomEventsMethodsTypes;
 
 type ComponentCreatorPropsType = Partial<ComponentCreatorPropsAllType>;
 type ComponentCreatorChildrenType =
