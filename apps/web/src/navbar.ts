@@ -17,7 +17,7 @@ function NavbarComponent(
 
   this.setEvent("onClick", () => {
     setCounter((c) => c - 1);
-    this.render({});
+    this.render();
   });
 
   return () => [

@@ -30,7 +30,7 @@ function App(this: Component): FCRendered {
 
   // update the span element when ever the count state gets changed
   this.onChange(() => {
-    this.render({});
+    this.render();
   }, [countRef]);
 
   return () => [
