@@ -1,4 +1,4 @@
-import { Component, ComponentCreator, element, FCRendered } from "@noorjs/core";
+import { Component, element, FCRendered } from "@noorjs/core";
 
 function NavbarComponent(
   this: Component,
@@ -20,17 +20,9 @@ function NavbarComponent(
     this.render();
   });
 
-  return () => [
-    ComponentCreator(
-      "h3",
-      {
-        style: {
-          color: "#422800",
-        },
-      },
-      `Navbar your number is : ${getCounter()}`
-    ),
-  ];
+  return () => (
+    <h3 style={{ color: "#422800" }}>Navbar your number is : {getCounter()}</h3>
+  );
 }
 
 export default NavbarComponent;
