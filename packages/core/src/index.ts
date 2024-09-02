@@ -8,6 +8,8 @@ import {
 } from "./interfaces/component";
 import { element } from "./utils/apply/element";
 import { ComponentCreator } from "./utils/component/componentCreator";
+// import the NoorJs global Jsx types 
+import './interfaces/jsx'; 
 
 // Exporting the packages
 

@@ -34,4 +34,5 @@ export type {
   ComponentCreatorChildrenType,
   ComponentCreatorReturnedType,
   ComponentCreatorType,
+  ComponentCreatorPropsAllType
 };
