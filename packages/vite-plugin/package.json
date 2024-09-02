@@ -8,9 +8,14 @@
     "build": "tsc",
     "build:prod": "tsup"
   },
-  "main": "./disk/index.js",
-  "module": "./disk/index.mjs",
-  "types": "./disk/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
