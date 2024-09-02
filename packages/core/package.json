@@ -15,7 +15,6 @@
       "types": "./dist/index.js"
     }
   },
-  "license": "MIT",
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
@@ -24,5 +23,8 @@
   },
   "dependencies": {
     "nanoid": "^5.0.7"
-  }
+  },
+  "keywords": ["Noor.js","core"],
+  "license": "MIT",
+  "author": "YahyaMesselmi"
 }
