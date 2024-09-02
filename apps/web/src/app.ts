@@ -34,7 +34,7 @@ function App(this: Component): FCRendered {
   }, [countRef]);
 
   return () => [
-    ComponentCreator(NavbarComponent, { count: getCount() }, []),
+    ComponentCreator(NavbarComponent, { count: getCount() }),
     ComponentCreator(
       "span",
       {
@@ -55,18 +55,17 @@ function App(this: Component): FCRendered {
           alignItems: "center",
         },
       },
-      [
-        ComponentCreator(
-          ButtonComponent,
-          { text: "increment", fun: increment },
-          []
-        ),
-        ComponentCreator(
-          ButtonComponent,
-          { text: "decrement", fun: decrement },
-          []
-        ),
-      ]
+      ComponentCreator(ButtonComponent, { text: "increment", fun: increment }),
+      ComponentCreator(ButtonComponent, { text: "decrement", fun: decrement })
+    ),
+    ComponentCreator(
+      "h1",
+      null,
+      getCount() == 5
+        ? ComponentCreator("span", { style: { color: "red" } }, "You won")
+        : null,
+      "\n",
+      "Yahia"
     ),
   ];
 }
