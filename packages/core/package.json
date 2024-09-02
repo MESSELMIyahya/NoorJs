@@ -6,25 +6,25 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "build:prod": "tsup src/index.ts --format cjs,esm --dts"
+    "build:prod": "tsup"
   },
-  "main": "./src/index.ts",
-  "exports": {
-    ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/index.js"
-    }
-  },
+  "main": "./disk/index.js",
+  "module": "./disk/index.mjs",
+  "types": "./disk/index.d.ts",
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "eslint": "^8.57.0",
+    "tsup": "^8.2.4",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "nanoid": "^5.0.7"
   },
-  "keywords": ["Noor.js","core"],
+  "keywords": [
+    "Noor.js",
+    "core"
+  ],
   "license": "MIT",
   "author": "YahyaMesselmi"
 }
