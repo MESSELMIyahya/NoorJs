@@ -1,6 +1,7 @@
 {
   "name": "@noorjs/core",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha",
+  "description": "NoorJs framework core package.",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
