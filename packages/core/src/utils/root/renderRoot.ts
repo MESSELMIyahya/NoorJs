@@ -1,9 +1,4 @@
-import {
-  ComponentChildrenType,
-  ComponentFunType,
-  ComponentObjRenderType,
-} from "../../interfaces/component";
-import { componentGenerator } from "../component/componentGenerator";
+import { ComponentChildrenType } from "../../interfaces/component";
 import { renderComponent } from "../component/renderComponent";
 import { CreatedRootElement } from "../root/createRoot";
 
@@ -14,8 +9,7 @@ function renderRoot(
   rootComponents: ComponentChildrenType[]
 ) {
   rootComponents.forEach((ele) => {
-    console.log('my root children :',ele.children);
-    // render the element
+    // render the first elements (root)
     renderComponent(ele, root.element);
   });
 }
