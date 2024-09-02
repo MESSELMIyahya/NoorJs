@@ -1,0 +1,25 @@
+{
+  "name": "@noorjs/vite",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "build:prod": "tsup src/index.ts --format cjs,esm --dts"
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./dist/index.js"
+    }
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {}
+}
