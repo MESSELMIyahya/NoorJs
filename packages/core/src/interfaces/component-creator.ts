@@ -12,11 +12,12 @@ type ComponentCreatorPropsAllType =
   | ComponentCoreDomPropertiesTypes
   | ComponentCoreDomEventsMethodsTypes;
 
-type ComponentCreatorPropsType = Partial<ComponentCreatorPropsAllType>;
+type ComponentCreatorPropsType = Partial<ComponentCreatorPropsAllType> | null;
 type ComponentCreatorChildrenType =
-  | ComponentCreatorReturnedType[]
   | ComponentCreatorReturnedType
-  | string;
+  | string
+  | number
+  | null;
 type ComponentCreatorReturnedType =
   | ComponentObjRenderType
   | ElementObjRenderType;

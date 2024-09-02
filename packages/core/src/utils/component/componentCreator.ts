@@ -15,10 +15,12 @@ function ComponentCreator<
   type: T,
   props: T extends ComponentFunType
     ? Parameters<T>[0] extends undefined
-      ? Record<string, any>
+      ? null
       : Parameters<T>[0]
-    : ComponentCreatorPropsType,
-  children: ComponentCreatorChildrenType
+    : T extends ComponentCoreElementTags
+      ? ComponentCreatorPropsType
+      : null,
+  ...children: ComponentCreatorChildrenType[]
 ): ComponentCreatorReturnedType {
   // Check if the component is html element or component function
   const elementType: "tag" | "component" =
@@ -48,29 +50,28 @@ function ComponentCreator<
     ...(renderObj.children || []),
   ];
 
-  // checking the children
+  // children
   // array of children
   if (Array.isArray(children)) {
     // add this renderObj to these children their as parent
     children.forEach((child) => {
-      children_render_objs.push({
-        ...child,
-        parent: { ...renderObj },
-      } as ComponentCreatorReturnedType);
+      // check if the child is a null
+      if (child == null) {
+        renderObj.html += "";
+      }
+      // check if the child is a number
+      else if (typeof child == "number") {
+        renderObj.html += "" + child.toString();
+      }
+      // check if the child is a string
+      else if (typeof child == "string") {
+        renderObj.html += "" + child;
+      } else
+        children_render_objs.push({
+          ...child,
+          parent: { ...renderObj },
+        } as ComponentCreatorReturnedType);
     });
-  }
-  // one child
-  else if (typeof children == "object") {
-    // add this renderObj to this child as parent
-    children_render_objs.push({
-      ...children,
-      parent: { ...renderObj },
-    } as ComponentCreatorReturnedType);
-  }
-  // if the children is a string
-  else if (typeof children == "string") {
-    // set the children to the html
-    renderObj.html = children;
   }
 
   // set the children render objs to the renderObj children array
