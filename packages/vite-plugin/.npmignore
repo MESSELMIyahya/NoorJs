@@ -1,0 +1,8 @@
+/src
+/node_modules
+
+.DS_Store
+.env
+.turbo
+tsconfig.json
+tsup.config.ts

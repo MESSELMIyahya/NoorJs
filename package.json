@@ -9,6 +9,7 @@
   "devDependencies": {
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
+    "tsup": "^8.2.4",
     "turbo": "^2.0.14"
   },
   "name": "NJF.js",
@@ -16,8 +17,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "tsup": "^8.2.4"
-  }
+  ]
 }

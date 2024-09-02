@@ -1,25 +1,28 @@
 {
   "name": "@noorjs/vite",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha",
+  "description": "NoorJs framework vite plugin.",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "build:prod": "tsup src/index.ts --format cjs,esm --dts"
+    "build:prod": "tsup"
   },
-  "main": "./src/index.ts",
-  "exports": {
-    ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/index.js"
-    }
-  },
-  "license": "MIT",
+  "main": "./disk/index.js",
+  "module": "./disk/index.mjs",
+  "types": "./disk/index.d.ts",
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "eslint": "^8.57.0",
     "typescript": "^5.3.3",
     "vite": "^5.4.2"
-  }
+  },
+  "keywords": [
+    "Noor.js",
+    "vite",
+    "plugin"
+  ],
+  "license": "MIT",
+  "author": "YahyaMesselmi"
 }
