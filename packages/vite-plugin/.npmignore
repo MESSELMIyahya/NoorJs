@@ -5,4 +5,5 @@
 .env
 .turbo
 tsconfig.json
+.eslintrc.cjs
 tsup.config.ts

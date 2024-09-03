@@ -1,15 +1,15 @@
 {
   "name": "@noorjs/vite",
-  "version": "0.0.1-alpha",
+  "version": "0.0.5-alpha",
   "description": "NoorJs framework vite plugin.",
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "build:prod": "tsup"
+    "build:prod": "tsup ./src/index.ts --format cjs,esm --dts"
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
