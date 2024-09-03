@@ -8,7 +8,8 @@
     "esModuleInterop": true,
     "strictNullChecks": true,
     "declaration": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

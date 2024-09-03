@@ -4,9 +4,9 @@
   "description": "NoorJs framework vite plugin.",
   "type": "module",
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc",
-    "build:prod": "tsup ./src/index.ts --format cjs,esm --dts"
+    "dev": "tsup --watch",
+    "lint": "tsc",
+    "build": "tsup"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
