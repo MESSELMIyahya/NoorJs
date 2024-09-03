@@ -1,6 +1,6 @@
 {
   "name": "@noorjs/core",
-  "version": "0.0.6-alpha",
+  "version": "0.0.9-alpha",
   "description": "NoorJs framework core package.",
   "type": "module",
   "scripts": {
@@ -9,7 +9,6 @@
     "build:prod": "tsup"
   },
   "main": "./dist/index.js",
-  "module": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
