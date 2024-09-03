@@ -10,7 +10,7 @@
     "strictNullChecks": true,
     // "moduleResolution": "Node10",
     "declaration": true,
-    "isolatedModules": true,
+    "noUncheckedIndexedAccess": true,
     "noEmit": true
   },
   "include": ["src"],
