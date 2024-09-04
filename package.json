@@ -3,6 +3,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "test":"vitest",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
@@ -10,7 +11,8 @@
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
     "tsup": "^8.2.4",
-    "turbo": "^2.0.14"
+    "turbo": "^2.0.14",
+    "vitest": "^2.0.5"
   },
   "name": "NJF.js",
   "packageManager": "npm@10.7.0",

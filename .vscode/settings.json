@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "app",
-        "core"
+        "core",
+        "repo"
     ]
 }
