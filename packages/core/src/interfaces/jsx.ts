@@ -1,4 +1,4 @@
-import { ComponentCreator } from "../utils/component/componentCreator";
+import ComponentCreator from "../component/creators/component-creator";
 import { ComponentCreatorPropsAllType } from "./component-creator";
 
 declare global {
@@ -107,7 +107,7 @@ declare global {
     }
   }
 
-  type ComponentCreator = typeof ComponentCreator
+  type ComponentCreator = typeof ComponentCreator;
 
   // For components
   //   interface ElementChildrenAttribute {
