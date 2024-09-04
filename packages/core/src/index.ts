@@ -1,20 +1,20 @@
 // Importing the core utils and types
-import { createRoot } from "./utils/root/createRoot";
-import { renderRoot } from "./utils/root/renderRoot";
+import renderRoot from "./root/renderRoot";
+import createRoot from "./root/createRoot";
 import {
   ComponentObjType,
   ComponentFunType,
   ComponentFunReturnedType,
 } from "./interfaces/component";
-import { element } from "./utils/apply/element";
-import { ComponentCreator } from "./utils/component/componentCreator";
-// import the NoorJs global Jsx types 
-import './interfaces/jsx'; 
+import elementPlug from "./plugs/element";
+import ComponentCreator from "./component/creators/component-creator";
+
+// import the NoorJs global Jsx types
+import "./interfaces/jsx";
 
 // Exporting the packages
-
 // Core functions/utils
-export { createRoot, renderRoot, element, ComponentCreator };
+export { createRoot, renderRoot, elementPlug as element, ComponentCreator };
 
 // Core types
 export type {
