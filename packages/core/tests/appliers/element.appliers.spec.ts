@@ -38,7 +38,7 @@ describe("Appliers Element Plug Tests", () => {
   });
 
   // view
-  it("Set Component set View Applier", () => {
+  it("Set Component Set View Applier", () => {
     // passing the object to the applier
     setComponentSetViews(this_test_obj);
 
@@ -48,7 +48,7 @@ describe("Appliers Element Plug Tests", () => {
   });
 
   // state
-  it("Set Component state Applier", () => {
+  it("Set Component State Applier", () => {
     // passing the object to the applier
     setComponentState(this_test_obj);
 
@@ -57,7 +57,7 @@ describe("Appliers Element Plug Tests", () => {
   });
 
   // get/set (getting/setting properties)
-  it("Set Component get/set Applier", () => {
+  it("Set Component Get/Set Applier", () => {
     // passing the object to the applier
     setComponentSetAttribute(this_test_obj);
 
@@ -86,7 +86,7 @@ describe("Appliers Element Plug Tests", () => {
   });
 
   // lifecycle
-  it("Set Component Lifecycle methods Applier", () => {
+  it("Set Component Lifecycle Methods Applier", () => {
     // passing the object to the applier
     setComponentLifecycleMethods(this_test_obj);
 
@@ -97,7 +97,7 @@ describe("Appliers Element Plug Tests", () => {
   });
 
   // state changes
-  it("Set Component State onChange Applier", () => {
+  it("Set Component State OnChange Applier", () => {
     // passing the object to the applier
     setComponentStateOnChange(this_test_obj);
 
