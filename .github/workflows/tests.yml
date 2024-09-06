@@ -21,5 +21,19 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-      - run: npm ci
-      - run: npm run test
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      - name: Remove package-lock.json and node_modules
+        run: |
+          rm -f package-lock.json
+          rm -rf node_modules
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install @rollup/rollup-linux-x64-gnu
+        run: npm install @rollup/rollup-linux-x64-gnu
+
+      - name: Run Vitest tests
+        run: npm run test
