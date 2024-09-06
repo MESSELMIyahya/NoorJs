@@ -3,7 +3,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "test": "vitest",
+    "test": "vitest run",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
