@@ -1,2 +1,2 @@
 ## NoorJs framework core package
-this is still under developing
+This is still under development
