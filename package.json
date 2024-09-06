@@ -8,6 +8,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
     "jsdom": "^25.0.0",
     "prettier": "^3.2.5",
     "tsup": "^8.2.4",
