@@ -21,8 +21,7 @@
   "version": "0.0.1",
   "packageManager": "pnpm@9.9.0",
   "workspaces": [
-    "apps/*",
-    "packages/*",
+    "packages/vite-plugin",
     "packages/core"
   ]
 }
