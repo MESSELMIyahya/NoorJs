@@ -1,6 +1,6 @@
 {
   "name": "@noorjs/core",
-  "version": "0.0.9-alpha",
+  "version": "0.0.9",
   "description": "NoorJs framework core package.",
   "type": "module",
   "scripts": {
