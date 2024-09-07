@@ -1,5 +1,5 @@
 packages:
-  - "app/*"
+  - "apps/*"
   - "packages/*"
   - "packages/vite-plugin"
   - "packages/core"
