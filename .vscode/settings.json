@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "app",
         "core",
-        "repo"
+        "repo",
+        "vite"
     ]
 }
