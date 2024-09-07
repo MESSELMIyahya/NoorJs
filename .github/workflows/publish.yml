@@ -13,6 +13,7 @@ permissions:
 jobs:
   release:
     name: Release
+    
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -38,9 +39,6 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          version: pnpm run version
-          commit: "chore: version packages"
-          title: "chore: version packages"
           publish: pnpm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
