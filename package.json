@@ -1,13 +1,15 @@
 {
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "test": "vitest run",
     "lint": "turbo lint",
+    "changeset":"changeset",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.8",
     "eslint": "^8.57.0",
     "jsdom": "^25.0.0",
     "prettier": "^3.2.5",
@@ -17,8 +19,10 @@
   },
   "name": "NJF.js",
   "packageManager": "npm@10.7.0",
+  "version": "0.0.1",
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "packages/core"
   ]
 }
