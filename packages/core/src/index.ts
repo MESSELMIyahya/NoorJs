@@ -9,7 +9,7 @@ import {
 import elementPlug from "./plugs/element";
 import ComponentCreator from "./component/creators/component-creator";
 
-// import the NoorJs global Jsx types
+// import the NoorJs global JSX types
 import "./interfaces/jsx";
 
 // Exporting the packages
