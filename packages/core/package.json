@@ -1,6 +1,7 @@
 {
   "name": "@noorjs/core",
   "version": "0.0.10",
+  "private": false,
   "description": "NoorJs framework core package.",
   "type": "module",
   "scripts": {
