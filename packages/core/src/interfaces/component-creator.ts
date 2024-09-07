@@ -13,11 +13,17 @@ type ComponentCreatorPropsAllType =
   | ComponentCoreDomEventsMethodsTypes;
 
 type ComponentCreatorPropsType = Partial<ComponentCreatorPropsAllType> | null;
+type ComponentCreatorChildrenPropertiesType =
+  | ComponentCreatorReturnedType
+  | string
+  | number
+  | null
 type ComponentCreatorChildrenType =
   | ComponentCreatorReturnedType
   | string
   | number
-  | null;
+  | null
+  | ComponentCreatorChildrenType[];
 type ComponentCreatorReturnedType =
   | ComponentObjRenderType
   | ElementObjRenderType;
@@ -32,7 +38,8 @@ export type {
   ComponentCreatorElementType,
   ComponentCreatorPropsType,
   ComponentCreatorChildrenType,
+  ComponentCreatorChildrenPropertiesType,
   ComponentCreatorReturnedType,
   ComponentCreatorType,
-  ComponentCreatorPropsAllType
+  ComponentCreatorPropsAllType,
 };
