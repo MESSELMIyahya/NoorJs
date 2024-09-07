@@ -23,4 +23,3 @@ export type {
   ComponentFunReturnedType as FCRendered,
   ComponentFunReturnedType,
 };
-
