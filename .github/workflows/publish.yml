@@ -13,28 +13,36 @@ permissions:
   pull-requests: write
 
 jobs:
-  publish:
+  release:
+    name: Release
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 9
 
-      - name: Use Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: "pnpm"
-      - run: pnpm install --frozen-lockfile
 
-      - name: Create Release Pull Request or Publish
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
+          version: pnpm run version
+          commit: "chore: version packages"
+          title: "chore: version packages"
           publish: pnpm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
