@@ -1,11 +1,11 @@
 {
   "name": "@noorjs/core",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "NoorJs framework core package.",
   "type": "module",
   "scripts": {
     "dev": "tsup --watch",
-    "lint":"tsc",
+    "lint": "tsc",
     "build": "tsup"
   },
   "main": "./dist/index.js",
