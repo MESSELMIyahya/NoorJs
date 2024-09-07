@@ -1,6 +1,6 @@
 {
   "name": "@noorjs/vite",
-  "version": "0.0.5-alpha",
+  "version": "0.0.6",
   "description": "NoorJs framework vite plugin.",
   "type": "module",
   "scripts": {
