@@ -4,9 +4,11 @@ import {
   ComponentCreatorPropsType,
   ComponentCreatorChildrenType,
   ComponentCreatorReturnedType,
+  ComponentCreatorChildrenPropertiesType,
 } from "../../../interfaces/component-creator";
 import componentGenerator from "../../generators/component-generator";
 import elementGenerator from "../../generators/element-generator";
+import componentCreator_Nested_Children_handler from "./utils/nested-children-arrays";
 
 // Function to create a component element
 
@@ -54,8 +56,13 @@ function ComponentCreator<
   // children
   // array of children
   if (Array.isArray(children)) {
+    // change nested arrays to one array of elements
+    const childrenElements: ComponentCreatorChildrenPropertiesType[] =
+      componentCreator_Nested_Children_handler(children);
+
     // add this renderObj to these children their as parent
-    children.forEach((child) => {
+    // setting the children
+    childrenElements.forEach((child) => {
       // check if the child is a null
       if (child == null) {
         renderObj.html += "";

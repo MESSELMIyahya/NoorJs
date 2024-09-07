@@ -146,8 +146,18 @@ describe("ComponentCreator Tests", () => {
     // It handles null as children
     expect(ComponentCreator("div", null, null).html).toBe("");
 
-    // It handles array/arrays ** NOT READY YET **
-    // expect(ComponentCreator("div", null,['hello',1,3]).html).toBe("hello13");
-    // expect(ComponentCreator("div", null,['why',3],['f3',5]).html).toBe("why3f35");
+    // It handles nested array/arrays
+    expect(ComponentCreator("div", null, ["hello", 1, 3]).html).toBe("hello13");
+    expect(ComponentCreator("div", null, ["why", 3], ["f3", 5]).html).toBe(
+      "why3f35"
+    );
+    expect(
+      ComponentCreator(
+        "div",
+        null,
+        ["hello", ["how", "are", ["you", ["do", "ing", 1], 2], 3], 4],
+        ["A", "B", "C"].map((e) => e + "@")
+      ).html
+    ).toBe("hellohowareyoudoing1234A@B@C@");
   });
 });

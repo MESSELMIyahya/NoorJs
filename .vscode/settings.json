@@ -3,6 +3,7 @@
         "app",
         "core",
         "repo",
-        "vite"
+        "vite",
+        "web"
     ]
 }

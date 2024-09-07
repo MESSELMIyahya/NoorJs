@@ -1,5 +1,11 @@
 # @noorjs/core
 
+## 0.1.0
+
+### Minor Changes
+
+- feat(core): ✨ Add array & nested-array support in the JSX
+
 ## 0.0.12
 
 ### Patch Changes
