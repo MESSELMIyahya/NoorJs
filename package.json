@@ -1,11 +1,11 @@
 {
-  "private": false,
+  "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "test": "vitest run",
     "lint": "turbo lint",
-    "changeset":"changeset",
+    "changeset": "changeset",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
@@ -18,10 +18,11 @@
     "vitest": "^2.0.5"
   },
   "name": "NJF.js",
-  "packageManager": "npm@10.7.0",
   "version": "0.0.1",
+  "packageManager": "pnpm@9.9.0",
   "workspaces": [
     "apps/*",
+    "packages/*",
     "packages/core"
   ]
 }
