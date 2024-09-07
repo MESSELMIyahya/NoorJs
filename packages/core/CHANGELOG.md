@@ -1,5 +1,11 @@
 # @noorjs/core
 
+## 0.0.12
+
+### Patch Changes
+
+- a8e1fe0: Fix JSX word
+
 ## 0.0.11
 
 ### Patch Changes
