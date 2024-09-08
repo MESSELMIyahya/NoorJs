@@ -57,6 +57,14 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
     tag: ComponentCoreElementTags;
     element?: ComponentCoreElementTypes<ELE>;
     states: Record<string, any>;
+    channel: {
+      provider: {
+        is: boolean;
+        id: string | null;
+      };
+      // accessor
+      accessors: string[];
+    };
     getChildren: () => ComponentChildrenType[];
     states_changes: Record<
       string,

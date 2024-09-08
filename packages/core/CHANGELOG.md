@@ -1,5 +1,11 @@
 # @noorjs/core
 
+## 0.2.0
+
+### Minor Changes
+
+- feat(core): ✨ Add Channel API
+
 ## 0.1.0
 
 ### Minor Changes

@@ -27,6 +27,13 @@ function componentGenerator<T extends ComponentFunType>(
       cycle: { init: [], mount: [], render: [] },
       states: {},
       children: [],
+      channel: {
+        provider: {
+          is: false,
+          id: null,
+        },
+        accessors: [],
+      },
       states_changes: {},
     },
     methods: {},
