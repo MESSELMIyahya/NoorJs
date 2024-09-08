@@ -1,12 +1,21 @@
-import { Component, element, FCRendered } from "@noorjs/core";
+import {
+  channel,
+  Component,
+  createChannel,
+  element,
+  FCRendered,
+} from "@noorjs/core";
 
-function NavbarComponent(
-  this: Component,
-  { count }: { count: number }
-): FCRendered {
+interface dataType {
+  getCount: () => number;
+  setCount: (n: number) => void;
+}
+
+export const newChannel = createChannel<dataType>();
+
+function NavbarComponent(this: Component<any>): FCRendered {
   element("div", this);
-
-  const [getCounter, setCounter] = this.state(count);
+  const [getCount, setCount] = this.state(0);
 
   this.styles({
     width: "100%",
@@ -15,14 +24,17 @@ function NavbarComponent(
     backgroundColor: "#d7cabc",
   });
 
-  this.setEvent("onClick", () => {
-    setCounter((c) => c - 1);
-    this.render();
-  });
+  channel(this)
+    .provider(newChannel)
+    .value({
+      getCount: getCount,
+      setCount: (n) => {
+        setCount(n);
+        this.render();
+      },
+    });
 
-  return () => (
-    <h3 style={{ color: "#422800" }}>Navbar your number is : {getCounter()}</h3>
-  );
+  return () => <h3 style={{ color: "#422800" }}>{getCount()}</h3>;
 }
 
 export default NavbarComponent;

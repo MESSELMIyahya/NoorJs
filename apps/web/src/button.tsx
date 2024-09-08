@@ -1,12 +1,14 @@
-import { Component, element, FCRendered } from "@noorjs/core";
+import { channel, Component, element, FCRendered } from "@noorjs/core";
+import { newChannel } from "./navbar";
 
 // Button component
 
 function ButtonComponent(
-  this: Component,
-  { fun, text }: { fun: () => void; text: string }
+  this: Component<any>,
+  { text }: { text: string }
 ): FCRendered {
   element("button", this);
+  const chan = channel(this).accessor(newChannel);
 
   // styles
   this.styles({
@@ -28,7 +30,7 @@ function ButtonComponent(
   });
 
   this.setEvent("onClick", () => {
-    fun();
+    chan.setCount(chan.getCount() + 1);
   });
 
   return () => text;
