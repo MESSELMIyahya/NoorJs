@@ -6,6 +6,7 @@ import {
   ComponentFunType,
   ComponentFunReturnedType,
 } from "./interfaces/component";
+
 // plugs
 import elementPlug from "./plugs/element";
 import channelPlug from "./plugs/channel";
