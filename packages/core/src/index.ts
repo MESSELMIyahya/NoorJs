@@ -6,16 +6,26 @@ import {
   ComponentFunType,
   ComponentFunReturnedType,
 } from "./interfaces/component";
+// plugs
 import elementPlug from "./plugs/element";
+import channelPlug from "./plugs/channel";
 
 import ComponentCreator from "./component/creators/component-creator";
 
 // import the NoorJs global JSX types
 import "./interfaces/jsx";
+import channelCreator from "./component/creators/channel-creator";
 
 // Exporting the packages
 // Core functions/utils
-export { createRoot, renderRoot, elementPlug as element, ComponentCreator };
+export {
+  createRoot,
+  renderRoot,
+  elementPlug as element,
+  channelPlug as channel,
+  ComponentCreator,
+  channelCreator as createChannel,
+};
 
 // Core types
 export type {
