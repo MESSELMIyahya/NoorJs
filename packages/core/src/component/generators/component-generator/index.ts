@@ -49,7 +49,7 @@ function componentGenerator<T extends ComponentFunType>(
   // throw error if the dev didn't call the element function inside the component
   if (!this_obj.ele.element) {
     throw new NJFError(
-      "Pleas call the 'element' function to initialize the component",
+      "Please call the 'element' function to initialize the component",
       "NotCalled"
     );
   }
