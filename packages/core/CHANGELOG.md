@@ -1,5 +1,11 @@
 # @noorjs/core
 
+## 0.2.1
+
+### Patch Changes
+
+- refactor(core): 🩹 fix wrongly spelt error message in the comopnent generator function
+
 ## 0.2.0
 
 ### Minor Changes
