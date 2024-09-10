@@ -9,6 +9,8 @@ function setComponentDOMMethods(this_obj: ComponentObjType<any>) {
     element.addEventListener.apply(element, p as any);
   this_obj.methods.after = (...p: unknown[]) =>
     element.after.apply(element, p as any);
+  this_obj.methods.click = (...p: unknown[]) =>
+    element.after.apply(element, p as any);
   this_obj.methods.animate = (...p: unknown[]) =>
     element.animate.apply(element, p as any);
   this_obj.methods.append = (...p: unknown[]) =>
