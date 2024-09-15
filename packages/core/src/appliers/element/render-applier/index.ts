@@ -11,7 +11,6 @@ function setComponentRender(this_obj: ComponentObjType<any>) {
   // setting the rerender function
   this_obj.render = (): boolean => {
     // new render object
-    console.log(this_obj);
 
     const renderObj: ComponentObjRenderType = {
       ele: {
