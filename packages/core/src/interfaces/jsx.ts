@@ -66,7 +66,6 @@ declare global {
       meta: Partial<ComponentCreatorPropsAllType>;
       meter: Partial<ComponentCreatorPropsAllType>;
       menu: Partial<ComponentCreatorPropsAllType>;
-      menuitem: Partial<ComponentCreatorPropsAllType>;
       nav: Partial<ComponentCreatorPropsAllType>;
       noscript: Partial<ComponentCreatorPropsAllType>;
       object: Partial<ComponentCreatorPropsAllType>;
