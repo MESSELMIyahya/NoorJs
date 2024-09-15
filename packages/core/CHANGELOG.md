@@ -1,5 +1,11 @@
 # @noorjs/core
 
+## 0.2.4
+
+### Patch Changes
+
+- c1bbc62: feat(core): ✨ Add the functionality to return different data types not just JSX
+
 ## 0.2.3
 
 ### Patch Changes
