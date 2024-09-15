@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import componentGenerator from "../../../src/component/generators/component-generator";
 import {
   ComponentFunReturnedType,
+  ComponentObjRenderType,
   ComponentObjType,
 } from "../../../src/interfaces/component";
 import ComponentCreator from "../../../src/component/creators/component-creator";
@@ -37,7 +38,7 @@ describe("ComponentGenerator Tests", () => {
     expect(
       componentGenerator(simpleComponent, {}).ele.tag == "main" &&
         componentGenerator(simpleComponent, {}).children![0] &&
-        componentGenerator(simpleComponent, {}).children![0].html == "mydiv"
+      (componentGenerator(simpleComponent, {}).children![0] as ComponentObjRenderType).children![0] == "mydiv"
     ).toBe(true);
   });
 
@@ -46,16 +47,16 @@ describe("ComponentGenerator Tests", () => {
     // check if hte it sets the children and their props
     // form element children
     expect(
-      componentGenerator(simpleComponent, {}).children![1].children![0].ele
+      ((componentGenerator(simpleComponent, {}).children![1] as ComponentObjRenderType).children![0] as ComponentObjRenderType).ele
         .tag == "input" &&
         (
-          componentGenerator(simpleComponent, {}).children![1].children![0].ele
+          ((componentGenerator(simpleComponent, {}).children![1] as ComponentObjRenderType).children![0] as ComponentObjRenderType).ele
             .element as HTMLInputElement
         ).placeholder == "Email" &&
-        componentGenerator(simpleComponent, {}).children![1].children![1].ele
+        ((componentGenerator(simpleComponent, {}).children![1] as ComponentObjRenderType).children![1] as ComponentObjRenderType).ele
           .tag == "input" &&
         (
-          componentGenerator(simpleComponent, {}).children![1].children![1].ele
+          ((componentGenerator(simpleComponent, {}).children![1] as ComponentObjRenderType).children![1] as ComponentObjRenderType).ele
             .element as HTMLInputElement
         ).placeholder == "Password"
     ).toBe(true);

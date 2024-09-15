@@ -1,16 +1,15 @@
 import {
   ComponentChildrenType,
   ComponentFunReturnedType,
+  ComponentObjType,
 } from "../../../interfaces/component";
 import NJFError from "../../../utils/error";
 
 // This function handles the returned value of the component
 
 interface ReturnedType {
-  options: Record<string, null>;
-  template: string;
   children: ComponentChildrenType[];
-  getter: () => ComponentChildrenType[];
+  getter: () => ReturnType<ComponentObjType<any>["ele"]["getChildren"]>;
 }
 
 function componentReturnedHandler(
@@ -20,7 +19,7 @@ function componentReturnedHandler(
   const ret = retFun();
 
   // checking the options/vars
-  if (!ret) {
+  if (ret === undefined) {
     throw new NJFError(
       "Component should return String/JSX or Array of JSX",
       "NotFound"
@@ -28,30 +27,38 @@ function componentReturnedHandler(
   }
   // check the ret type
   // JSX (array of JSX)
-  if (typeof ret !== "string" && Array.isArray(ret)) {
+  if (Array.isArray(ret)) {
     return {
       getter: () => retFun() as ComponentChildrenType[],
       children: [...ret],
-      options: {},
-      template: "",
     };
   }
   // JSX
-  else if (typeof ret !== "string") {
+  else if (typeof ret !== "string" && typeof ret !== "number" && ret !== null) {
     return {
       getter: () => [retFun()] as ComponentChildrenType[],
       children: [ret],
-      options: {},
-      template: "",
+    };
+  }
+  // Null
+  else if (ret === null) {
+    return {
+      getter: () => [retFun()] as ComponentChildrenType[],
+      children: [ret],
+    };
+  }
+  // Number
+  else if (typeof ret === "number") {
+    return {
+      getter: () => [retFun()?.toString() || null],
+      children: [(ret as number).toString()],
     };
   }
   // String
   else {
     return {
-      getter: () => [],
-      children: [],
-      options: {},
-      template: ret,
+      getter: () => [retFun() as string],
+      children: [ret.toString()],
     };
   }
 }

@@ -22,7 +22,6 @@ function componentGenerator<T extends ComponentFunType>(
   const this_obj: ComponentObjType<any> = Object.create({
     ele: {
       id: componentId,
-      options: {},
       tag: "div",
       cycle: { init: [], mount: [], render: [] },
       states: {},
@@ -57,14 +56,7 @@ function componentGenerator<T extends ComponentFunType>(
   componentLifecycleInit(this_obj.ele.cycle.init);
 
   // handling the returned value form the component
-  const { children, getter, options, template } =
-    componentReturnedHandler(called_component);
-
-  // setting the options to the this_obj options
-  this_obj.ele.options = options;
-
-  // setting the template to the this_obj template
-  this_obj.ele.template = template;
+  const { children, getter } = componentReturnedHandler(called_component);
 
   // setting the getChildren to the this_obj getChildren
   this_obj.ele.getChildren = getter;
@@ -80,10 +72,7 @@ function componentGenerator<T extends ComponentFunType>(
       tag: this_obj.ele.tag,
       element: this_obj.ele.element,
     },
-    html: this_obj.ele.template,
-    options,
     states: this_obj.ele.states,
-    template: template,
     parent: null,
     children: [...children],
   };

@@ -3,7 +3,7 @@ import channelCreator from "../../src/component/creators/channel-creator";
 import ComponentCreator from "../../src/component/creators/component-creator";
 import elementPlug from "../../src/plugs/element";
 import channelPlug from "../../src/plugs/channel";
-import { ComponentObjType } from "../../src/interfaces/component";
+import { ComponentObjRenderType, ComponentObjType } from "../../src/interfaces/component";
 import { renderComponent } from "../../src/component/render/render-component";
 
 // Channel Plug Tests
@@ -186,7 +186,7 @@ describe("Channel Plug Test", () => {
     expect(test_channel.getter()["title"]).toBe("Hello");
 
     // check children view
-    expect(ComponentParent_RenderObj.children![0].html).toBe("Hello900");
+    expect((ComponentParent_RenderObj.children![0] as ComponentObjRenderType).children![0]).toBe("Hello900");
 
     // check the counter in the channel
     expect(test_channel.getter()["getCounter"]()).toBe(900);
@@ -316,8 +316,8 @@ describe("Channel Plug Test", () => {
     expect(test_channel.getter()["title"]).toBeTypeOf("string");
 
     // check children view2
-    expect(ComponentChild1_Obj.html).toBe("Child1_0");
-    expect(ComponentChild2_Obj.html).toBe("Child2_900");
+    expect(ComponentChild1_Obj.children![0]).toBe("Child1_0");
+    expect(ComponentChild2_Obj.children![0]).toBe("Child2_900");
 
     // check the counter in the channel
     expect(test_channel.getter()["getCounter"]()).toBe(900);
