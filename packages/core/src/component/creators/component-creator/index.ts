@@ -1,4 +1,4 @@
-import { ComponentFunType } from "../../../interfaces/component";
+import { ComponentFunType, ComponentObjRenderType } from "../../../interfaces/component";
 import { ComponentCoreElementTags } from "../../../interfaces/component-core-element-tags";
 import {
   ComponentCreatorPropsType,
@@ -6,6 +6,7 @@ import {
   ComponentCreatorReturnedType,
   ComponentCreatorChildrenPropertiesType,
 } from "../../../interfaces/component-creator";
+import { ElementObjRenderType } from "../../../interfaces/element";
 import componentGenerator from "../../generators/component-generator";
 import elementGenerator from "../../generators/element-generator";
 import componentCreator_Nested_Children_handler from "./utils/nested-children-arrays";
@@ -24,7 +25,8 @@ function ComponentCreator<
       ? ComponentCreatorPropsType
       : null,
   ...children: ComponentCreatorChildrenType[]
-): ComponentCreatorReturnedType {
+):  ComponentObjRenderType
+| ElementObjRenderType {
   // Check if the component is html element or component function
   const elementType: "tag" | "component" =
     type instanceof Function ? "component" : "tag";
