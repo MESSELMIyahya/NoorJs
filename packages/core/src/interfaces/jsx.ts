@@ -6,6 +6,7 @@ declare global {
     interface IntrinsicElements {
       // HTML elements
       div: Partial<ComponentCreatorPropsAllType>;
+      a: Partial<ComponentCreatorPropsAllType>;
       abbr: Partial<ComponentCreatorPropsAllType>;
       address: Partial<ComponentCreatorPropsAllType>;
       area: Partial<ComponentCreatorPropsAllType>;
@@ -17,9 +18,13 @@ declare global {
       bdo: Partial<ComponentCreatorPropsAllType>;
       blockquote: Partial<ComponentCreatorPropsAllType>;
       button: Partial<ComponentCreatorPropsAllType>;
+      base: Partial<ComponentCreatorPropsAllType>;
       canvas: Partial<ComponentCreatorPropsAllType>;
       cite: Partial<ComponentCreatorPropsAllType>;
       code: Partial<ComponentCreatorPropsAllType>;
+      col: Partial<ComponentCreatorPropsAllType>;
+      colgroup: Partial<ComponentCreatorPropsAllType>;
+      caption: Partial<ComponentCreatorPropsAllType>;
       data: Partial<ComponentCreatorPropsAllType>;
       datalist: Partial<ComponentCreatorPropsAllType>;
       dd: Partial<ComponentCreatorPropsAllType>;
@@ -60,6 +65,8 @@ declare global {
       mark: Partial<ComponentCreatorPropsAllType>;
       meta: Partial<ComponentCreatorPropsAllType>;
       meter: Partial<ComponentCreatorPropsAllType>;
+      menu: Partial<ComponentCreatorPropsAllType>;
+      menuitem: Partial<ComponentCreatorPropsAllType>;
       nav: Partial<ComponentCreatorPropsAllType>;
       noscript: Partial<ComponentCreatorPropsAllType>;
       object: Partial<ComponentCreatorPropsAllType>;
@@ -88,6 +95,7 @@ declare global {
       sub: Partial<ComponentCreatorPropsAllType>;
       summary: Partial<ComponentCreatorPropsAllType>;
       sup: Partial<ComponentCreatorPropsAllType>;
+      svg: Partial<ComponentCreatorPropsAllType>;
       table: Partial<ComponentCreatorPropsAllType>;
       tbody: Partial<ComponentCreatorPropsAllType>;
       td: Partial<ComponentCreatorPropsAllType>;

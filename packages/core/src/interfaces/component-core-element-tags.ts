@@ -12,8 +12,13 @@ type ComponentCoreElementTags =   | "a"
 | "bdo"
 | "blockquote"
 | "button"
+| "br"
+| "base"
 | "canvas"
 | "cite"
+| "col"
+| "colgroup"
+| "caption"
 | "code"
 | "data"
 | "datalist"
@@ -56,6 +61,8 @@ type ComponentCoreElementTags =   | "a"
 | "mark"
 | "meta"
 | "meter"
+| "menu"
+| "menuitem"
 | "nav"
 | "noscript"
 | "object"
@@ -67,6 +74,7 @@ type ComponentCoreElementTags =   | "a"
 | "picture"
 | "pre"
 | "progress"
+| "param"
 | "q"
 | "rp"
 | "rt"
@@ -84,6 +92,7 @@ type ComponentCoreElementTags =   | "a"
 | "sub"
 | "summary"
 | "sup"
+| "svg"
 | "table"
 | "tbody"
 | "td"
@@ -115,9 +124,13 @@ type ComponentCoreElementTypes<T extends keyof HTMLElementTagNameMap = "div"> =
   T extends "blockquote" ? HTMLQuoteElement :
   T extends "br" ? HTMLBRElement :
   T extends "button" ? HTMLButtonElement :
+  T extends "base" ? HTMLBaseElement :
   T extends "canvas" ? HTMLCanvasElement :
   T extends "cite" ? HTMLElement :
   T extends "code" ? HTMLElement :
+  T extends "col" ? HTMLElement :
+  T extends "colgroup" ? HTMLElement :
+  T extends "caption" ? HTMLElement :
   T extends "data" ? HTMLDataElement :
   T extends "datalist" ? HTMLDataListElement :
   T extends "dd" ? HTMLElement :
@@ -159,6 +172,8 @@ type ComponentCoreElementTypes<T extends keyof HTMLElementTagNameMap = "div"> =
   T extends "mark" ? HTMLElement :
   T extends "meta" ? HTMLMetaElement :
   T extends "meter" ? HTMLMeterElement :
+  T extends "menu" ? HTMLMenuElement :
+  T extends "menuitem" ? HTMLElement  :
   T extends "nav" ? HTMLElement :
   T extends "noscript" ? HTMLElement :
   T extends "object" ? HTMLObjectElement :
@@ -170,6 +185,7 @@ type ComponentCoreElementTypes<T extends keyof HTMLElementTagNameMap = "div"> =
   T extends "picture" ? HTMLPictureElement :
   T extends "pre" ? HTMLPreElement :
   T extends "progress" ? HTMLProgressElement :
+  T extends "param" ? HTMLElement :
   T extends "q" ? HTMLQuoteElement :
   T extends "rp" ? HTMLElement :
   T extends "rt" ? HTMLElement :
@@ -187,6 +203,7 @@ type ComponentCoreElementTypes<T extends keyof HTMLElementTagNameMap = "div"> =
   T extends "sub" ? HTMLElement :
   T extends "summary" ? HTMLElement :
   T extends "sup" ? HTMLElement :
+  T extends "svg" ? SVGSVGElement :
   T extends "table" ? HTMLTableElement :
   T extends "tbody" ? HTMLTableSectionElement :
   T extends "td" ? HTMLTableCellElement :
