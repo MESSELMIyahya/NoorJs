@@ -3,6 +3,7 @@ import * as renderComponentMethods from "../../../src/component/render/render-co
 import ComponentCreator from "../../../src/component/creators/component-creator";
 import {
   ComponentFunReturnedType,
+  ComponentObjRenderType,
   ComponentObjType,
 } from "../../../src/interfaces/component";
 import elementPlug from "../../../src/plugs/element";
@@ -42,6 +43,7 @@ describe("Render Component Methods Tests", () => {
     const parent = document.body;
     const renderObj = ComponentCreator(simpleComponent, null);
 
+    
     // call the function to render the component
     renderComponentMethods.renderComponent(renderObj, parent);
 
@@ -52,11 +54,11 @@ describe("Render Component Methods Tests", () => {
     expect(
       renderObj.ele.element!.contains(
         // child 1
-        renderObj.children![0].ele.element!
+        (renderObj.children![0] as ComponentObjRenderType).ele.element!
       ) &&
         renderObj.ele.element!.contains(
           // child 2
-          renderObj.children![1].ele.element!
+          (renderObj.children![1] as ComponentObjRenderType).ele.element!
         )
     ).toBe(true);
 
@@ -89,12 +91,14 @@ describe("Render Component Methods Tests", () => {
     renderComponentMethods.renderComponent(renderObj, parent);
 
     // change some data in the component
-    renderObj.html = "Hello,Algeria";
+    renderObj.children![0] = "Hello,Algeria";
     const imgRenderObj = ComponentCreator("img", { src: "" }, null);
     renderObj.children?.push(imgRenderObj);
 
     // rerender the component
-    renderComponentMethods.rerenderComponent(renderObj);
+    renderComponentMethods.rerenderComponent(
+      renderObj as ComponentObjRenderType
+    );
 
     // Test if the data was updated in the dom
     // the text
