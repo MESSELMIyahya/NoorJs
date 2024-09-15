@@ -12,48 +12,51 @@ function renderComponent(
   component: ComponentChildrenType,
   parent: HTMLElement
 ) {
-  const element = component.ele.element;
-  element!.innerHTML = component.html;
-  // render the component (appending the element to the parent element)
-  parent.appendChild(element as HTMLElement);
+  // check if the component is string 
+  if(typeof component == 'string'){
+    // if the child is a string we append it to the parent  
+    parent.append(component);
+  }else {
+    // accessing the component element  
+    const element = component.ele.element;
 
-  // render the render the children if it has
-  component.children?.forEach((child) => {
-    renderComponent(child, element as HTMLElement);
-  });
+    // render the component (appending the element to the parent element)
+    parent.appendChild(element as HTMLElement);
+    
+    // render the render the children if it has
+    component.children?.forEach((child) => {
+      renderComponent(child, element as HTMLElement);
+    });
 
-  // run the mount lifecycle methods if this is a component
-  if ((component as ComponentObjRenderType).ele.cycle) {
-    componentLifecycleMount(
-      (component as ComponentObjRenderType).ele.cycle.mount
-    );
+    // run the mount lifecycle methods if this is a component
+    if ((component as ComponentObjRenderType).ele.cycle) {
+      componentLifecycleMount(
+        (component as ComponentObjRenderType).ele.cycle.mount
+      );
+    }
   }
+  
 }
 
 // rerender the component by the id
 
-function rerenderComponent(component: ComponentChildrenType) {
-  // template and options
-  // let options = component.options;
-  let template = component.html;
-  // generate the template
-  // const rendered_template = templateRenderer(template, options);
-  // access the component
-  const element = component.ele.element;
-  //  resetting the innerHTML to the rendered template
-  element!.innerHTML = template;
+function rerenderComponent(component: ComponentObjRenderType) {
+    // access the component
+    const element = component.ele.element;
+    // setting the html to empty string to rerender the component 
+    element!.innerHTML = "";
 
-  // render the render the children if it has
-  component.children?.forEach((child) => {
-    renderComponent(child, element as HTMLElement);
-  });
+    // render the render the children if it has
+    component.children?.forEach((child) => {
+      renderComponent(child, element as HTMLElement);
+    });
 
-  // run the mount lifecycle methods if this is a component
-  if ((component as ComponentObjRenderType).ele.cycle) {
-    componentLifecycleMount(
-      (component as ComponentObjRenderType).ele.cycle.render
-    );
-  }
+    // run the mount lifecycle methods if this is a component
+    if ((component as ComponentObjRenderType).ele.cycle) {
+      componentLifecycleMount(
+        (component as ComponentObjRenderType).ele.cycle.render
+      );
+    }
 }
 
 export { renderComponent, rerenderComponent };

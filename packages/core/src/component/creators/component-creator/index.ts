@@ -65,15 +65,19 @@ function ComponentCreator<
     childrenElements.forEach((child) => {
       // check if the child is a null
       if (child == null) {
-        renderObj.html += "";
+        // if the child is null
       }
       // check if the child is a number
       else if (typeof child == "number") {
-        renderObj.html += "" + child.toString();
+        // renderObj.html += "" + child.toString();
+        // add the number as string to children array
+        children_render_objs.push(child.toString());
       }
       // check if the child is a string
       else if (typeof child == "string") {
-        renderObj.html += "" + child;
+        // renderObj.html += "" + child;
+        // add the string to children array
+        children_render_objs.push(child.toString());
       } else
         children_render_objs.push({
           ...child,
@@ -85,6 +89,7 @@ function ComponentCreator<
   // set the children render objs to the renderObj children array
   renderObj.children = children_render_objs;
 
+  console.log("one", renderObj);
   // return the obj
   return renderObj;
 }

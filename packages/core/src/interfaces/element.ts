@@ -7,7 +7,6 @@ interface ElementObjRenderType {
     tag: string;
     element?: ComponentCoreElementTypes<any>;
   };
-  html: string;
   parent: (ElementObjRenderType | ComponentObjRenderType) | null;
   children?: (ElementObjRenderType | ComponentObjRenderType)[];
 }

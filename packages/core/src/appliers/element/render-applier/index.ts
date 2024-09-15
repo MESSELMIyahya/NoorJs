@@ -17,7 +17,6 @@ function setComponentRender(this_obj: ComponentObjType<any>) {
         tag: this_obj.ele.tag,
         element: this_obj.ele.element,
       },
-      html: this_obj.ele.template,
       options: { ...this_obj.ele.options },
       states: this_obj.ele.states,
       parent: null,

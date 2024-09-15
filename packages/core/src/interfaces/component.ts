@@ -14,7 +14,10 @@ import { ComponentStateMethodType } from "./state";
 
 // Children Type
 
-type ComponentChildrenType = ComponentObjRenderType | ElementObjRenderType;
+type ComponentChildrenType =
+  | string
+  | ComponentObjRenderType
+  | ElementObjRenderType;
 
 // Component Fun Returned Type
 type ComponentFunReturnedType = () =>
@@ -40,7 +43,6 @@ interface ComponentObjRenderType {
       render: (() => void)[];
     };
   };
-  html: string;
   template: string;
   states: Record<string, any>;
   parent: ComponentObjRenderType | null;

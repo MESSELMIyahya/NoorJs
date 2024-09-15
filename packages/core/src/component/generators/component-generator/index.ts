@@ -80,7 +80,6 @@ function componentGenerator<T extends ComponentFunType>(
       tag: this_obj.ele.tag,
       element: this_obj.ele.element,
     },
-    html: this_obj.ele.template,
     options,
     states: this_obj.ele.states,
     template: template,
