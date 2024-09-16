@@ -2,78 +2,80 @@
 
 Welcome to the NoorJs reference documentation, In this page you will learn all the core concepts and API reference that you need to create your next app.
 
+![hero](imgs/documentation.png)
+
 ## Table of Contents
 
 1.  [Introduction](#introduction)
 2.  [Installation](#installation)
-3.  [Basic Usage]()
-4.  [Core Concepts]()
-    - [Component]()
-    - [Plugs]()
-    - [JSX]()
-    - [Props]()
-5.  [API Reference]()
+3.  [Basic Usage](#basic-usage)
+4.  [Core Concepts](#core-concepts)
+    - [Component](#component)
+    - [Plugs](#plugs)
+    - [JSX](#jsx)
+    - [Props](#props)
+5.  [API Reference](#api-reference)
 
     - [Creation & Initialization](#creation-&-IInitialization)
       - [createRoot]()
       - [renderRoot]()
       - [componentCreator]()
       - [createChannel]()
-    - [Component Methods]()
+    - [Component Methods](#component-methods)
 
-      - [Attributes & Methods]()
+      - [Attributes & Methods](#attributes--methods)
 
-        - [get() (Method)]()
-        - [set() (Method)]()
-        - [methods (Property)]()
+        - [get() (Method)](#get)
+        - [set() (Method)](#set)
+        - [methods (Property)](#methods-property)
 
-      - [Styling]()
+      - [Styling](#styling)
 
-        - [style() (Method)]()
-        - [styles() (Method)]()
+        - [style() (Method)](#style)
+        - [styles() (Method)](#styles)
 
-      - [Events]()
+      - [Events](#events)
 
-        - [setEvent() (Method)]()
-        - [removeEvent() (Method)]()
+        - [setEvent() (Method)](#setevent)
+        - [removeEvent() (Method)](#removeevent)
 
-      - [View]()
+      - [View](#view)
 
-        - [setTextView() (Method)]()
-        - [setView() (Method)]()
+        - [setTextView() (Method)](#settextview)
+        - [setView() (Method)](#setview)
 
-      - [States]()
+      - [State](#state)
 
-        - [state() (Method)]()
-        - [onChange() (Method)]()
+        - [state() (Method)](#state-1)
+        - [onChange() (Method)](#onchange)
 
-      - [Lifecycle]()
+      - [Lifecycle](#lifecycle)
 
-        - [onInit() (Method)]()
-        - [onMount() (Method)]()
-        - [onRender() (Method)]()
+        - [onInit() (Method)](#oninit)
+        - [onMount() (Method)](#onmount)
+        - [onRender() (Method)](#onrender)
 
-      - [Rendering]()
+      - [Rendering](#rendering)
 
-        - [render() (Method)]()
+        - [render() (Method)](#render)
 
-    - [Built-in Plugs]()
-      - [Element (Plug)]()
+    - [Built-in Plugs](#built-in-plugs)
+      - [Element (Plug)](#element-plug)
       - [Channel (Plug)](#channel-plug)
 
-6.  [Roles]()
+6.  [Rules & Best Practices](#roles--best-practices)
 
-    - [Plugs-Roles]()
-    - [Component-Roles]()
-    - [Channel-Roles]()
+    - [Plugs-Rules](#plugs-roles)
+    - [Rendering & Lifecycle Methods](#rendering--lifecycle-methods)
+    - [Channel-Rules](#channel-roles)
 
-7.  [Examples]()
+7.  [Examples](#examples)
 
     - [Counting]()
     - [To-do]()
 
-8.  [Contributing]()
-9.  [License]()
+8.  [Contributing](#contributing)
+9.  [License](#license)
 
 ## Introduction
 
@@ -91,8 +93,8 @@ Continue reading these docs to explore how NoorJs can transform your approach to
 
 To install NoorJs run the next command
 
-```bash
-npx create noorjs@latest my-noorjs-app
+```shell
+npx create-noor-app
 ```
 
 ## Basic Usage
@@ -226,7 +228,7 @@ function App(this: Component): FCRendered {
 }
 ```
 
-In this example we crated `Logo` component that was initialized as `img` html element and we set the img `src` attribute and the component renders a `null`, we used this `Logo` component inside the `Header` component which's a `header` html element and renders a title and `Logo` component then we the `Header` component inside the App element.
+In this example we crated `Logo` component that was initialized as `img` html element and we set the img `src` attribute and the component renders a `null`, we used this `Logo` component inside the `Header` component which is a `header` html element and renders a title and `Logo` component then we the `Header` component inside the App element.
 
 ### Plugs
 
@@ -256,7 +258,7 @@ In this example we called the `element` plug function in the start of our compon
 
 - The plugs should only be called at top level of a component function and as the first operations , there's some plugs which can be called anywhere at the top level in your function body but is not recommended to do that.
 - Every plug takes the constructor as param to add/handle logic some logic in the component function
-- Function which's not taking the constructor as param and doesn't add/handle any logic inside constructor object isn't called plug.
+- Function which is not taking the constructor as param and doesn't add/handle any logic inside constructor object isn't called plug.
 
 ### JSX
 
@@ -520,7 +522,7 @@ const myRoot = crateRoot();
 renderRoot(myRoot, [<App />]);
 ```
 
-In this code we create a root element which's `myRoot` and we passed it with the `<App/>` component to `renderRoot` function , `renderRoot` function will render the `<App/>` with its nested children into `myRoot` element.
+In this code we create a root element which is `myRoot` and we passed it with the `<App/>` component to `renderRoot` function , `renderRoot` function will render the `<App/>` with its nested children into `myRoot` element.
 
 **Warning**
 Don't pass the component as normal function like this
@@ -557,7 +559,7 @@ const myELement = componentCreator("div", null, "Hello");
 `componentCreator` function accepts 3 params :
 
 1. `type`: which can be html element tag or anther `componentCreator` that returns a component (Not html element).
-2. `props`: which's object that holds methods,properties and it can be `null`.
+2. `props`: which is object that holds methods,properties and it can be `null`.
 3. `children array` this is the children of the component it can be anther `componentCreator` function or `string` , `null`,`number` or even a JavaScript Expression like `n == c ? c+1 : c*5` or an array of all the prevues types.
 
 **HINT** : The third param `children array` is an array so all of your params after it will be converted into one array wit the JavaScript rest parameters syntax `componentCreator(type,props...children){...}`
@@ -777,7 +779,7 @@ In this example we set some styles to `color`,`padding` and `fontSize` css prope
 
 ##### styles()
 
-`styles` it is a method in the constructor that let you set multiple styles to the component element and it has one param which's `object of css properties` css properties with their styles.
+`styles` it is a method in the constructor that let you set multiple styles to the component element and it has one param which is `object of css properties` css properties with their styles.
 
 ```jsx
 import { Component,FCRendered } from "@noorjs/core";
@@ -812,7 +814,7 @@ Methods that let you add DOM events to your component element.
 `setEvent` it is a method in the constructor that let you add events to your component element and it the recommended to add events ,this method takes two params:
 
 1. `event`: the event name like `onClick`,`onBlur` and all the dom events.
-2. `callback`: a callback function that will run whenever this event is triggered and it has one param which's the event object.
+2. `callback`: a callback function that will run whenever this event is triggered and it has one param which is the event object.
 
 ```jsx
 import { Component,FCRendered } from "@noorjs/core";
@@ -878,7 +880,7 @@ Methods that let you update the view (innerHTML/innerText) of your component ele
 
 `setView` it is a method in the constructor that gives you the ability to change the `innerHTML` of your component element without rerendering the component ,this function takes one param :
 
-1. `view`: which's a `string` that will set to the component element's `innerHTML`.
+1. `view`: which is a `string` that will set to the component element's `innerHTML`.
 
 ```jsx
 import { Component,FCRendered } from "@noorjs/core";
@@ -1140,7 +1142,7 @@ function Title(this: Component): FCRendered {
 }
 ```
 
-In this simple app we created two states `counter` and `list` and we create an arrow function named addItem which increases the `counter` state and add it as new item to the `list` state ,then we added `onChange` method that take a `callback` function that rerenders the component whenever the `list` state get changed using the `listRef` which's the `list` state reference ,after that we returned a function that returned a JSX and this JSX includes `button` element that has `onClick` prop method which's assigned to the `addItem` function and also it includes `ul` list and we loop over the `list` and returning `li` elements with `item` as text.
+In this simple app we created two states `counter` and `list` and we create an arrow function named addItem which increases the `counter` state and add it as new item to the `list` state ,then we added `onChange` method that take a `callback` function that rerenders the component whenever the `list` state get changed using the `listRef` which is the `list` state reference ,after that we returned a function that returned a JSX and this JSX includes `button` element that has `onClick` prop method which is assigned to the `addItem` function and also it includes `ul` list and we loop over the `list` and returning `li` elements with `item` as text.
 
 whenever the user clicks on the button the `counter` will be increased and new item add to the `list` state that will triggered the `onChange` method and render the component to see the new item in the website(view).
 
@@ -1152,7 +1154,7 @@ Lifecycle Methods are methods in the constructor that help you run a `callback` 
 
 ##### onInit()
 
-`onInit` it is a method in the constructor that you can use it to run a function when the component gets initialized and before the initial render and it accepts one param which's the `callback` function that you want to run.
+`onInit` it is a method in the constructor that you can use it to run a function when the component is initialized and before the initial render and it accepts one param which is the `callback` function that you want to run.
 
 ```jsx
 import { Component,FCRendered } from "@noorjs/core";
@@ -1160,7 +1162,7 @@ import { Component,FCRendered } from "@noorjs/core";
 function Title(this: Component): FCRendered {
   element("button", this);
 
-  // run a function when the component gets initialized
+  // run a function when the component is initialized
   this.onInit(()=>{
       console.log("component initialized");
   })
@@ -1169,19 +1171,19 @@ function Title(this: Component): FCRendered {
 }
 ```
 
-In example the `callback` that we passed to the `onInit` method will run when the component gets initialized and before the first render.
+In this example the `callback` that we passed to the `onInit` method will run when the component is initialized and before the first render.
 
-**HINT** The difference between code in the component function body and the code in the `onInit` method that the component function will called first then the component gets initialized then the lifecycle methods run.
+**HINT** The difference between code in the component function body and the code in the `onInit` method that the component function when the comwill be called firstponent is initialized then the component gets initialized then the lifecycle methods run.
 
-**WHEN-TO-USE** `onInit` method is the best method for data fetching and initialization process like connecting to websocket or authentication verification.
+**WHEN TO USE** `onInit` method is the best method for data fetching and initialization process like connecting to websocket or authentication verification.
 
-**WHET-NOT-TO-USE** Don't use this method in DOM logic and actions like clicking a button or rendering and changing the view with `render()` ,`setView()` and `setTextView()` methods because it get run before the initial render.
+**WHEN NOT TO USE** Don't use this method in DOM logic and actions like clicking a button or rendering and changing the view with `render()` ,`setView()` and `setTextView()` methods because it get ran before the initial render.
 
 **HINT** : This method is added by the `element` plug.
 
 ##### onMount()
 
-`onMount` it is a method in the constructor that you can use it to run a function after the initial render and like the `onInit` method it also accepts one param which's the `callback` function that you want to run.
+`onMount` it is a method in the constructor that you can use it to run a function after the initial render and like the `onInit` method it also accepts one param which is the `callback` function that you want to run.
 
 ```jsx
 import { Component,FCRendered } from "@noorjs/core";
@@ -1189,7 +1191,7 @@ import { Component,FCRendered } from "@noorjs/core";
 function Title(this: Component): FCRendered {
   element("button", this);
 
-  // run a function when the component gets initialized
+  // run a function when the component is initialized
   this.onInit(()=>{
       console.log("FIRST(1): component initialized");
   })
@@ -1205,7 +1207,7 @@ function Title(this: Component): FCRendered {
 
 In this code the `onMount` method will be called after the `onInit` method because the `onMount` method will be called once after the initial render.
 
-**WHEN-TO-USE** `onMount` method is the best method for interacting with the DOM and DOM action methods like `click`,`scroll`... because it gets called directly after initial render and you can also use it for data fetching.
+**WHEN TO USE** `onMount` method is the best method for interacting with the DOM and DOM action methods like `click`,`scroll`... because it gets called directly after initial render and you can also use it for data fetching.
 
 **HINT** : This method is added by the `element` plug.
 
@@ -1235,7 +1237,7 @@ function Title(this: Component): FCRendered {
 
 In this example the `onRender` method won't be called until we rerender the component by clicking the button to invoke a function that calls the `render` method.
 
-**WHEN-TO-USE** `onRender` is useful for debugging and conditions like checking states every rerender and to know when your component has been rerendered.
+**WHEN TO USE** `onRender` is useful for debugging and conditions like checking states every rerender and to know when your component has been rerendered.
 
 **WHEN-NOT-TO-USE** `onRender` isn't the method that you're going to use so often so try not use it in complex logic use `onMount` or `onInit` instead.
 
@@ -1358,7 +1360,7 @@ function App(this: Component): FCRendered {
     setTheme
   });
 
-  // change the some styles when the theme gets changed
+  // change some styles when the theme gets changed
 
   this.onChange(()=>{
     this.style("transition","all 300ms");
@@ -1399,7 +1401,7 @@ function HomeSection(this: Component): FCRendered {
 }
 ```
 
-In this example we created `myThemeChannel` channel and exported it and we created two components the first one the `App` component which's the provider of the data and we created `theme` state and we used the `channel` plug to shear the `theme` state getter and setter methods via `myThemeChannel` channel by using the `provider` method that the `channel` plug returns and we called a `onChange` function to change some styles when the `theme` state gets changed using the `themeRef`, we retune the `HomeSection` component.
+In this example we created `myThemeChannel` channel and exported it and we created two components the first one the `App` component which is the provider of the data and we created `theme` state and we used the `channel` plug to shear the `theme` state getter and setter methods via `myThemeChannel` channel by using the `provider` method that the `channel` plug returns and we called a `onChange` function to change some styles when the `theme` state gets changed using the `themeRef`, we retune the `HomeSection` component.
 
 then use create the `HomeSection` component that uses the `channel` plug returned `accessor` method to access the sheared data via the `myThemeChannel` channel and we declared a `toggle` arrow function to toggle the sheared theme state and passed this function to a button's `onclick` event method.
 
@@ -1490,7 +1492,7 @@ function MainSection(this: Component): FCRendered {
     setTheme
   });
 
-  // change the some styles when the theme gets changed
+  // change some styles when the theme gets changed
 
   this.onChange(()=>{
     this.style("transition","all 300ms");
@@ -1510,9 +1512,9 @@ function MainSection(this: Component): FCRendered {
 
 In this example we created the `App` component that renders two (peer-to-peer) children component.
 
-Let's start with the `MainSection` which's the channel provider , we created `myThemeChannel` channel and used it in this component to provide the `theme` state and we called the `onChange` function to change some styles when the `theme` state gets changed using the `themeRef`.
+Let's start with the `MainSection` which is the channel provider , we created `myThemeChannel` channel and used it in this component to provide the `theme` state and we called the `onChange` function to change some styles when the `theme` state gets changed using the `themeRef`.
 
-In the other hand in the `ToggleButton` component which's the accessor , we accessed the `theme` state using the `channel` plug returned `accessor` method and assigned that sheared data in `theme_chan` var **(if we destructor it and the provider component hasn't rendered yet and the channel data is still empty we'll get an error ,so to access it after the provider component has set the data in the channel we should assign it to a var to access what is inside it.)** then we created the `toggle` arrow function to toggle the theme and passed it to the onclick in the button.
+In the other hand in the `ToggleButton` component which is the accessor , we accessed the `theme` state using the `channel` plug returned `accessor` method and assigned that sheared data in `theme_chan` var **(if we destructure it and the provider component hasn't rendered yet and the channel data is still empty we'll get an error ,so to access it after the provider component has set the data in the channel we should assign it to a var to access what is inside it.)** then we created the `toggle` arrow function to toggle the theme and passed it to the onclick in the button.
 
 When we click button the theme will be changed.
 
@@ -1596,15 +1598,15 @@ function ToggleButton(this: Component): FCRendered {
 
 In this app we created the `App` component which has  the `ToggleButton` as child and the `App` is an accessor and it uses the `channel` plug returned `accessor` method to access the `myThemeChannel` channel data and then we created `getCurrent` arrow function that logs the current theme by using the `theme_chan` which has the sheared data and then we passed it to the onclick in the button.
 
-We create `ToggleButton` component which's the provider of the `myThemeChannel` channel , in this component we create the `theme` state then we added `onInit` method to check the theme in cookies and set it to the `theme` state, then we used the `channel` plug to shear the data via the `myThemeChannel` channel.
+We create `ToggleButton` component which is the provider of the `myThemeChannel` channel , in this component we create the `theme` state then we added `onInit` method to check the theme in cookies and set it to the `theme` state, then we used the `channel` plug to shear the data via the `myThemeChannel` channel.
 
 When the user clicks the button it will logs the current theme by accessing it form the child.
 
-### Roles & Best Practices 
+### Rules & Best Practices 
 
-These are a list of role and best practices that you should follow for building proforemnes scalable bug-less apps
+These are a list of role and best practices that you should follow for building performance, scalable and bug-free apps
 
-#### Plugs Roles 
+#### Plugs Rules 
 - Always use plugs and the top-level of your component function.
 - Don't use plugs inside other functions.
 - Try to use as the first operation in your component function.
@@ -1612,14 +1614,18 @@ These are a list of role and best practices that you should follow for building 
 #### Rendering & Lifecycle Methods
 - Don't use `onInit()` lifecycle method to in interacting with the DOM because it gets invoked before the component first/initial render.
 - Don't use the `render()` method inside the lifecycle methods.
-- Use the DOM actions methods like `click`,`scroll`... inside the `onMount()` life lifecycle method because it gets invoked after the initial render.
+- Use the DOM action methods like `click`,`scroll`... inside the `onMount()` life lifecycle method because it gets invoked after the initial render.
 - Use the `render()` method to rerender component that has JSX and if the component has just simple string,number use the `setView` and `setTextView` methods.
 - Don't use `setView` and `setTextView` methods inside the component that has JSX because they'll clear the `innerHTML` and `innerText` and set the new view instead use `render()` method. 
 
-#### Channel
+#### Channel Rules
 - Don't provide and access the same channel in the component and NoorJS will throw an error because you can't access the same channel that you're providing and it bad practice.
-- When component accessing a channel that was provided by child or a peer component (component which's not your component's parent or child) don't destructor the data the `accessor` method returns because the data won't get updated instead assign the returned `accessor` method data to a variable and it inside other functions and don't use it in the component function body because you're trying to accessing it before even it gets provided by the child or the peer component.
+- When component accessing a channel that was provided by child or a peer component (component which is not your component's parent or child) don't destructure the data the `accessor` method returns because the data won't get updated instead assign the returned `accessor` method data to a variable and it inside other functions and don't use it in the component function body because you're trying to access it before even it gets provided by the child or the peer component.
 
 
 
 
+## Contributing
+Please read the [contributing guide](/CONTRIBUTING.md).
+## License
+Licensed under the [MIT license](https://github.com/MESSELMIyahya/NoorJs/blob/main/LICENSE).
