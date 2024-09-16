@@ -1,4 +1,4 @@
-# NoorJs Docs
+# NoorJs Documentation
 
 Welcome to the NoorJs reference documentation, In this page you will learn all the core concepts and API reference that you need to create your next app.
 
@@ -119,7 +119,7 @@ renderRoot(root, [<App />]);
 #### app.tsx file
 
 this file has a simple app component that implements a counting functionality
-and increasing the count state whenever the component gets clicked and rerender it once the count state get changed.
+and increasing the count state whenever the component gets clicked and rerender it once the count state gets changed.
 
 ```jsx
 import { element, Component } from "@noorjs/core";
@@ -136,9 +136,9 @@ function App(this: Component) {
     setCount((c) => c + 1);
   });
 
-  // listening to the state whenever it get changed and passing the count state ref
+  // listening to the state whenever it gets changed and passing the count state ref
   this.onChange(() => {
-    // rerendering the app whenever the state get changed
+    // rerendering the app whenever the state gets changed
     this.render();
   }, [countRef]);
 
@@ -1085,7 +1085,7 @@ function Title(this: Component): FCRendered {
     setCounter((c)=>c+1);
   });
 
-  // when the counter state get changed
+  // when the counter state gets changed
 
   this.onChange(()=>{
     // rerendering the component to get a new view with the latest values
@@ -1142,7 +1142,7 @@ function Title(this: Component): FCRendered {
 }
 ```
 
-In this simple app we created two states `counter` and `list` and we create an arrow function named addItem which increases the `counter` state and add it as new item to the `list` state ,then we added `onChange` method that take a `callback` function that rerenders the component whenever the `list` state get changed using the `listRef` which is the `list` state reference ,after that we returned a function that returned a JSX and this JSX includes `button` element that has `onClick` prop method which is assigned to the `addItem` function and also it includes `ul` list and we loop over the `list` and returning `li` elements with `item` as text.
+In this simple app we created two states `counter` and `list` and we create an arrow function named addItem which increases the `counter` state and add it as new item to the `list` state ,then we added `onChange` method that take a `callback` function that rerenders the component whenever the `list` state gets changed using the `listRef` which is the `list` state reference ,after that we returned a function that returned a JSX and this JSX includes `button` element that has `onClick` prop method which is assigned to the `addItem` function and also it includes `ul` list and we loop over the `list` and returning `li` elements with `item` as text.
 
 whenever the user clicks on the button the `counter` will be increased and new item add to the `list` state that will triggered the `onChange` method and render the component to see the new item in the website(view).
 
@@ -1575,7 +1575,7 @@ function ToggleButton(this: Component): FCRendered {
  const [getTheme,setTheme] = this.state("white");
 
 
-  // 
+  //
   this.onInit(()=>{
     // checking the theme in the cookies
     // code ...
@@ -1596,36 +1596,39 @@ function ToggleButton(this: Component): FCRendered {
 }
 ```
 
-In this app we created the `App` component which has  the `ToggleButton` as child and the `App` is an accessor and it uses the `channel` plug returned `accessor` method to access the `myThemeChannel` channel data and then we created `getCurrent` arrow function that logs the current theme by using the `theme_chan` which has the sheared data and then we passed it to the onclick in the button.
+In this app we created the `App` component which has the `ToggleButton` as child and the `App` is an accessor and it uses the `channel` plug returned `accessor` method to access the `myThemeChannel` channel data and then we created `getCurrent` arrow function that logs the current theme by using the `theme_chan` which has the sheared data and then we passed it to the onclick in the button.
 
 We create `ToggleButton` component which is the provider of the `myThemeChannel` channel , in this component we create the `theme` state then we added `onInit` method to check the theme in cookies and set it to the `theme` state, then we used the `channel` plug to shear the data via the `myThemeChannel` channel.
 
 When the user clicks the button it will logs the current theme by accessing it form the child.
 
-### Rules & Best Practices 
+### Rules & Best Practices
 
 These are a list of role and best practices that you should follow for building performance, scalable and bug-free apps
 
-#### Plugs Rules 
+#### Plugs Rules
+
 - Always use plugs and the top-level of your component function.
 - Don't use plugs inside other functions.
 - Try to use as the first operation in your component function.
 
 #### Rendering & Lifecycle Methods
+
 - Don't use `onInit()` lifecycle method to in interacting with the DOM because it gets invoked before the component first/initial render.
 - Don't use the `render()` method inside the lifecycle methods.
 - Use the DOM action methods like `click`,`scroll`... inside the `onMount()` life lifecycle method because it gets invoked after the initial render.
 - Use the `render()` method to rerender component that has JSX and if the component has just simple string,number use the `setView` and `setTextView` methods.
-- Don't use `setView` and `setTextView` methods inside the component that has JSX because they'll clear the `innerHTML` and `innerText` and set the new view instead use `render()` method. 
+- Don't use `setView` and `setTextView` methods inside the component that has JSX because they'll clear the `innerHTML` and `innerText` and set the new view instead use `render()` method.
 
 #### Channel Rules
+
 - Don't provide and access the same channel in the component and NoorJS will throw an error because you can't access the same channel that you're providing and it bad practice.
 - When component accessing a channel that was provided by child or a peer component (component which is not your component's parent or child) don't destructure the data the `accessor` method returns because the data won't get updated instead assign the returned `accessor` method data to a variable and it inside other functions and don't use it in the component function body because you're trying to access it before even it gets provided by the child or the peer component.
 
-
-
-
 ## Contributing
+
 Please read the [contributing guide](/CONTRIBUTING.md).
+
 ## License
+
 Licensed under the [MIT license](https://github.com/MESSELMIyahya/NoorJs/blob/main/LICENSE).
