@@ -12,8 +12,13 @@ type ComponentCoreElementTags =   | "a"
 | "bdo"
 | "blockquote"
 | "button"
+| "br"
+| "base"
 | "canvas"
 | "cite"
+| "col"
+| "colgroup"
+| "caption"
 | "code"
 | "data"
 | "datalist"
@@ -56,6 +61,7 @@ type ComponentCoreElementTags =   | "a"
 | "mark"
 | "meta"
 | "meter"
+| "menu"
 | "nav"
 | "noscript"
 | "object"
@@ -115,9 +121,13 @@ type ComponentCoreElementTypes<T extends keyof HTMLElementTagNameMap = "div"> =
   T extends "blockquote" ? HTMLQuoteElement :
   T extends "br" ? HTMLBRElement :
   T extends "button" ? HTMLButtonElement :
+  T extends "base" ? HTMLBaseElement :
   T extends "canvas" ? HTMLCanvasElement :
   T extends "cite" ? HTMLElement :
   T extends "code" ? HTMLElement :
+  T extends "col" ? HTMLElement :
+  T extends "colgroup" ? HTMLElement :
+  T extends "caption" ? HTMLElement :
   T extends "data" ? HTMLDataElement :
   T extends "datalist" ? HTMLDataListElement :
   T extends "dd" ? HTMLElement :
@@ -159,6 +169,7 @@ type ComponentCoreElementTypes<T extends keyof HTMLElementTagNameMap = "div"> =
   T extends "mark" ? HTMLElement :
   T extends "meta" ? HTMLMetaElement :
   T extends "meter" ? HTMLMeterElement :
+  T extends "menu" ? HTMLMenuElement :
   T extends "nav" ? HTMLElement :
   T extends "noscript" ? HTMLElement :
   T extends "object" ? HTMLObjectElement :

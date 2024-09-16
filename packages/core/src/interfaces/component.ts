@@ -14,11 +14,14 @@ import { ComponentStateMethodType } from "./state";
 
 // Children Type
 
-type ComponentChildrenType = ComponentObjRenderType | ElementObjRenderType;
+type ComponentChildrenType =
+  | string
+  | null
+  | ComponentObjRenderType
+  | ElementObjRenderType;
 
 // Component Fun Returned Type
 type ComponentFunReturnedType = () =>
-  | string
   | ComponentChildrenType
   | ComponentChildrenType[];
 
@@ -40,20 +43,15 @@ interface ComponentObjRenderType {
       render: (() => void)[];
     };
   };
-  html: string;
-  template: string;
   states: Record<string, any>;
   parent: ComponentObjRenderType | null;
   children?: ComponentChildrenType[];
-  options: Record<string, number | string | boolean | null>;
 }
 
 // Component Obj Type
 interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
   ele: {
     id: string;
-    options: Record<string, number | string | boolean | null>;
-    template: string;
     tag: ComponentCoreElementTags;
     element?: ComponentCoreElementTypes<ELE>;
     states: Record<string, any>;
@@ -65,7 +63,7 @@ interface ComponentObjType<ELE extends ComponentCoreElementTags = "div"> {
       // accessor
       accessors: string[];
     };
-    getChildren: () => ComponentChildrenType[];
+    getChildren: () => ComponentChildrenType | ComponentChildrenType[];
     states_changes: Record<
       string,
       {

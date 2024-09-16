@@ -1,5 +1,24 @@
 # @noorjs/core
 
+## 0.2.4
+
+### Patch Changes
+
+- c1bbc62: feat(core): ✨ Add the functionality to return different data types not just JSX
+
+## 0.2.3
+
+### Patch Changes
+
+- fix(core): ✏ Added missed JSX elements
+
+## 0.2.2
+
+### Patch Changes
+
+- fix(core): ⚡ Fix elements reversing rendering issue
+- a85fe15: fix(core): ⚡ Fix elements reversing rendering issue
+
 ## 0.2.1
 
 ### Patch Changes

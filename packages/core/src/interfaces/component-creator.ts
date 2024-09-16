@@ -1,4 +1,4 @@
-import { ComponentFunType, ComponentObjRenderType } from "./component";
+import { ComponentChildrenType, ComponentFunType, ComponentObjRenderType } from "./component";
 import { ComponentCoreDomEventsMethodsTypes } from "./component-core-dom-events";
 import { ComponentCoreDomPropertiesTypes } from "./component-core-dom-properties";
 import { ComponentCoreElementTags } from "./component-core-element-tags";
@@ -25,8 +25,7 @@ type ComponentCreatorChildrenType =
   | null
   | ComponentCreatorChildrenType[];
 type ComponentCreatorReturnedType =
-  | ComponentObjRenderType
-  | ElementObjRenderType;
+ComponentChildrenType
 
 type ComponentCreatorType = (
   type: ComponentCreatorElementType,

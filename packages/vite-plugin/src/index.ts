@@ -8,8 +8,8 @@ const NoorJs: NoorJsType = () => {
     config: (c) => {
       //  custom esBuild options
       const esbuildOptions: UserConfig["esbuild"] = {
-        jsxInject: "import {ComponentCreator} from '@noorJs/core'",
-        jsxFactory: "ComponentCreator",
+        jsxInject: "import { ComponentCreator as _h } from '@noorjs/core'",
+        jsxFactory: "_h",
         // jsx: "preserve",
       };
       //   setting the JSX esBuild options to the custom options

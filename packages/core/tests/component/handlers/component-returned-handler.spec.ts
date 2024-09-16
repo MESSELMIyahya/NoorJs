@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { ComponentFunReturnedType } from "../../../src/interfaces/component";
+import {
+  ComponentFunReturnedType,
+  ComponentObjRenderType,
+} from "../../../src/interfaces/component";
 import ComponentCreator from "../../../src/component/creators/component-creator";
 import componentReturnedHandler from "../../../src/component/handlers/component-returned-handler";
 
@@ -23,14 +26,16 @@ describe("ComponentReturnedHandler Tests", () => {
     const { children, getter } = componentReturnedHandler(retFun);
 
     // sets and returns the children
-    expect(children![0].ele.tag == "div" && children![1].ele.tag == "p").toBe(
-      true
-    );
+    expect(
+      (children![0] as ComponentObjRenderType).ele.tag == "div" &&
+        (children![1] as ComponentObjRenderType).ele.tag == "p"
+    ).toBe(true);
 
     // sets and returns the getter method
-    expect(getter()[0].ele.tag == "div" && getter()[1].ele.tag == "p").toBe(
-      true
-    );
+    expect(
+      (getter()![0] as ComponentObjRenderType).ele.tag == "div" &&
+        getter()![1].ele.tag == "p"
+    ).toBe(true);
   });
 
   // It handles all Children types "string" | "JSX (ComponentCreator)" | "JSX[]"
@@ -38,8 +43,10 @@ describe("ComponentReturnedHandler Tests", () => {
     // Test component return functions for each children type
     // String
     const retFunString: ComponentFunReturnedType = () => "Hello";
-    // Array of Strings => ** NOT READY YET **
-    // const retFunArrayString: ComponentFunReturnedType = () => ["Hello","World"];
+    const retFunArrayString: ComponentFunReturnedType = () => [
+      "Hello",
+      "World",
+    ];
     // JSX (ComponentCreator)
 
     const retFunJSX: ComponentFunReturnedType = () =>
@@ -51,20 +58,34 @@ describe("ComponentReturnedHandler Tests", () => {
     ];
 
     // Returns string child
-    expect(componentReturnedHandler(retFunString).template).toBe("Hello");
+    expect(componentReturnedHandler(retFunString).children[0]).toBe("Hello");
+    // Returns strings children
+    expect(componentReturnedHandler(retFunString).children[0]).toBe("Hello");
+    expect(componentReturnedHandler(retFunArrayString).children[1]).toBe(
+      "World"
+    );
 
     // Returns JSX child and getter method
     expect(
-      componentReturnedHandler(retFunJSX).children![0].ele.tag == "div" &&
-        componentReturnedHandler(retFunJSX).getter()[0].ele.tag == "div"
+      (
+        componentReturnedHandler(retFunJSX)
+          .children![0] as ComponentObjRenderType
+      ).ele.tag == "div" &&
+        componentReturnedHandler(retFunJSX).getter()![0].ele.tag == "div"
     ).toBe(true);
 
     // Returns JSX children
     expect(
-      componentReturnedHandler(retFunArrayJSX).children![0].ele.tag == "div" &&
+      (
+        componentReturnedHandler(retFunArrayJSX)
+          .children![0] as ComponentObjRenderType
+      ).ele.tag == "div" &&
         componentReturnedHandler(retFunArrayJSX).getter()![0].ele.tag ==
           "div" &&
-        componentReturnedHandler(retFunArrayJSX).children![1].ele.tag == "p" &&
+        (
+          componentReturnedHandler(retFunArrayJSX)
+            .children![1] as ComponentObjRenderType
+        ).ele.tag == "p" &&
         componentReturnedHandler(retFunArrayJSX).getter()![1].ele.tag == "p"
     ).toBe(true);
   });

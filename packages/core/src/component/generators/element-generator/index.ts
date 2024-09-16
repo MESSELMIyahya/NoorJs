@@ -46,7 +46,6 @@ function elementGenerator(
       tag: tag,
       element: element,
     },
-    html: "",
     parent: null,
     children: [],
   };

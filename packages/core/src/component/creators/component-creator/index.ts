@@ -1,4 +1,4 @@
-import { ComponentFunType } from "../../../interfaces/component";
+import { ComponentFunType, ComponentObjRenderType } from "../../../interfaces/component";
 import { ComponentCoreElementTags } from "../../../interfaces/component-core-element-tags";
 import {
   ComponentCreatorPropsType,
@@ -6,6 +6,7 @@ import {
   ComponentCreatorReturnedType,
   ComponentCreatorChildrenPropertiesType,
 } from "../../../interfaces/component-creator";
+import { ElementObjRenderType } from "../../../interfaces/element";
 import componentGenerator from "../../generators/component-generator";
 import elementGenerator from "../../generators/element-generator";
 import componentCreator_Nested_Children_handler from "./utils/nested-children-arrays";
@@ -24,7 +25,8 @@ function ComponentCreator<
       ? ComponentCreatorPropsType
       : null,
   ...children: ComponentCreatorChildrenType[]
-): ComponentCreatorReturnedType {
+):  ComponentObjRenderType
+| ElementObjRenderType {
   // Check if the component is html element or component function
   const elementType: "tag" | "component" =
     type instanceof Function ? "component" : "tag";
@@ -65,15 +67,19 @@ function ComponentCreator<
     childrenElements.forEach((child) => {
       // check if the child is a null
       if (child == null) {
-        renderObj.html += "";
+        // if the child is null
       }
       // check if the child is a number
       else if (typeof child == "number") {
-        renderObj.html += "" + child.toString();
+        // renderObj.html += "" + child.toString();
+        // add the number as string to children array
+        children_render_objs.push(child.toString());
       }
       // check if the child is a string
       else if (typeof child == "string") {
-        renderObj.html += "" + child;
+        // renderObj.html += "" + child;
+        // add the string to children array
+        children_render_objs.push(child.toString());
       } else
         children_render_objs.push({
           ...child,
@@ -85,6 +91,7 @@ function ComponentCreator<
   // set the children render objs to the renderObj children array
   renderObj.children = children_render_objs;
 
+  console.log("one", renderObj);
   // return the obj
   return renderObj;
 }
