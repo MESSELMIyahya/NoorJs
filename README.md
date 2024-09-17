@@ -37,7 +37,7 @@ Continue reading these docs to explore how NoorJs can transform your approach to
 Begin your NoorJs journey by creating a new application with the following command:
 
 ```shell
-npx create-noor-app
+npm create noor@latest
 ```
 
 For detailed guidance and further exploration, continue with the [Documentation](docs/doc.md).
