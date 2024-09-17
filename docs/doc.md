@@ -91,10 +91,38 @@ Continue reading these docs to explore how NoorJs can transform your approach to
 
 ## Installation
 
-To install NoorJs run the next command
+To create your first with NoorJs app run this command
+
+**NPM**
 
 ```shell
-npx create-noor-app
+npm create noor@latest
+```
+
+**Yarn**
+
+```shell
+yarn create noor
+```
+
+**PNPM**
+
+```shell
+pnpm create noor
+```
+
+**Bun**
+
+```shell
+bun create noor
+```
+
+then
+
+```shell
+cd <your-project-name>
+npm install
+npm run dev
 ```
 
 ## Basic Usage
