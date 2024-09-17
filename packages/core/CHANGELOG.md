@@ -1,5 +1,11 @@
 # @noorjs/core
 
+## 0.2.5
+
+### Patch Changes
+
+- fix(core): ➖ Rmove the console.log from the componentCreator function
+
 ## 0.2.4
 
 ### Patch Changes
