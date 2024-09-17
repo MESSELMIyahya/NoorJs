@@ -91,7 +91,6 @@ function ComponentCreator<
   // set the children render objs to the renderObj children array
   renderObj.children = children_render_objs;
 
-  console.log("one", renderObj);
   // return the obj
   return renderObj;
 }
