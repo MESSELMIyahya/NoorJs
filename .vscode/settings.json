@@ -4,6 +4,7 @@
         "core",
         "repo",
         "vite",
-        "web"
+        "web",
+        "Old-Core"
     ]
 }
