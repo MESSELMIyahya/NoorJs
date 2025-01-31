@@ -1,6 +1,3 @@
-import { createRoot } from '@noorjs/core'
+import { AddTwo } from '@noorjs/core'
 
-// console.log("add two :", AddTwo(1, 2));
-
-
-console.log(createRoot)
+console.log('add :',AddTwo(1,34))
