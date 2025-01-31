@@ -8,6 +8,7 @@
     // "noImplicitAny": true,
     "esModuleInterop": true,
     "strictNullChecks": true,
+    "experimentalDecorators": true,
     // "moduleResolution": "Node10",
     "declaration": true,
     "noUncheckedIndexedAccess": true,
