@@ -2,9 +2,17 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*","dist/**"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*",
+        "dist/**"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "lint": {},
     "dev": {
