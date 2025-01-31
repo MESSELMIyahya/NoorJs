@@ -1,7 +1,15 @@
-// NooJs Core Package main file
+// __The main file that imports & exports the developer needed function & types
 
-function AddTwo(a: number, b: number) {
-  return a + b;
+
+// Importing functions
+import { $_Component_Decorator as Component } from "./decorators/component";
+
+
+
+
+
+// Exporting
+export {
+  Component
 }
 
-export { AddTwo };
