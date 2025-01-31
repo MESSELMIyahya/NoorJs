@@ -6,6 +6,10 @@
         "vite",
         "web",
         "Old-Core",
-        "Types & Interfaces"
+        "Types & Interfaces",
+        "Decorators",
+        "Utilities",
+        "Factories",
+        "Enums"
     ]
 }
