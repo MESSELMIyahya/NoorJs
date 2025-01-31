@@ -1,8 +1,6 @@
-import { createRoot, renderRoot } from "@noorjs/old_core";
-import App from "./app";
+import { createRoot } from '@noorjs/core'
 
-// creating the root
-const root = createRoot();
+// console.log("add two :", AddTwo(1, 2));
 
-// render the component
-renderRoot(root, [<App />]);
+
+console.log(createRoot)
