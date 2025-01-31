@@ -3,3 +3,4 @@ packages:
   - "packages/*"
   - "packages/vite-plugin"
   - "packages/core"
+  - "packages/old_core"

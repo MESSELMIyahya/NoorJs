@@ -4,7 +4,7 @@ import {
   createChannel,
   element,
   FCRendered,
-} from "@noorjs/core";
+} from "@noorjs/old_core";
 
 interface dataType {
   getCount: () => number;

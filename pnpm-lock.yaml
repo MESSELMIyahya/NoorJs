@@ -38,7 +38,10 @@ importers:
     dependencies:
       '@noorjs/core':
         specifier: '*'
-        version: link:../../packages/core
+        version: 0.2.5
+      '@noorjs/old_core':
+        specifier: '*'
+        version: link:../../packages/old_core
       '@noorjs/vite':
         specifier: '*'
         version: link:../../packages/vite-plugin
@@ -73,7 +76,7 @@ importers:
 
   packages/config-typescript: {}
 
-  packages/core:
+  packages/old_core:
     dependencies:
       nanoid:
         specifier: ^5.0.7
@@ -526,6 +529,9 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@noorjs/core@0.2.5':
+    resolution: {integrity: sha512-A+Zxtk4lQ9KUmjS8Jb2iEAq9d5111Iooi5saQbFT9SfxpECPQqA5XhmB97zRh9umMtSLpj0WoW+QtDk5f2rzQw==}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -2313,6 +2319,10 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
+
+  '@noorjs/core@0.2.5':
+    dependencies:
+      nanoid: 5.0.7
 
   '@pkgjs/parseargs@0.11.0':
     optional: true

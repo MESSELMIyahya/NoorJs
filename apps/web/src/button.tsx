@@ -1,4 +1,4 @@
-import { channel, Component, element, FCRendered } from "@noorjs/core";
+import { channel, Component, element, FCRendered } from "@noorjs/old_core";
 import { newChannel } from "./navbar";
 
 // Button component

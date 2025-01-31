@@ -1,4 +1,4 @@
-import { createRoot, renderRoot } from "@noorjs/core";
+import { createRoot, renderRoot } from "@noorjs/old_core";
 import App from "./app";
 
 // creating the root

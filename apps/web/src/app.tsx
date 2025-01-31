@@ -1,4 +1,4 @@
-import { Component, element, FCRendered } from "@noorjs/core";
+import { Component, element, FCRendered } from "@noorjs/old_core";
 import NavbarComponent from "./navbar";
 import Button from "./button";
 

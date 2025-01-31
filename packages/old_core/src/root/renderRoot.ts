@@ -1,6 +1,6 @@
 import { renderComponent } from "../component/render/render-component";
 import { ComponentChildrenType } from "../interfaces/component";
-import { CreatedRootElement } from "../root/createRoot";
+import { CreatedRootElement } from "./createRoot";
 
 // The renderRoot function
 

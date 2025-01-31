@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@noorJs/core": path.resolve(__dirname, "../../packages/core"),
+      "@noorJs/old_core": path.resolve(__dirname, "../../packages/old_core"),
     },
   },
   build: {
