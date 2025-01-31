@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo build --filter=!@noorjs/old_core",
-    "dev": "turbo dev --filter=!@noorjs/old_core",
+    "build": "turbo build",
+    "dev": "turbo dev",
     "test": "vitest run",
     "lint": "turbo lint",
     "changeset": "changeset",

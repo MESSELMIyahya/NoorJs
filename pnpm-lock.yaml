@@ -39,9 +39,6 @@ importers:
       '@noorjs/core':
         specifier: '*'
         version: 0.2.5
-      '@noorjs/old_core':
-        specifier: '*'
-        version: link:../../packages/old_core
       '@noorjs/vite':
         specifier: '*'
         version: link:../../packages/vite-plugin
@@ -75,6 +72,28 @@ importers:
         version: 9.1.0(eslint@8.57.0)
 
   packages/config-typescript: {}
+
+  packages/core:
+    dependencies:
+      nanoid:
+        specifier: ^5.0.7
+        version: 5.0.7
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: '*'
+        version: link:../config-eslint
+      '@repo/typescript-config':
+        specifier: '*'
+        version: link:../config-typescript
+      eslint:
+        specifier: ^8.57.0
+        version: 8.57.0
+      tsup:
+        specifier: ^8.2.4
+        version: 8.2.4(postcss@8.4.45)(typescript@5.6.2)
+      typescript:
+        specifier: ^5.3.3
+        version: 5.6.2
 
   packages/old_core:
     dependencies:

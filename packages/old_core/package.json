@@ -2,7 +2,7 @@
   "name": "@noorjs/old_core",
   "version": "0.2.5",
   "private": false,
-  "description": "NoorJs framework core package.",
+  "description": "NoorJs framework old core package.",
   "type": "module",
   "scripts": {
     "dev": "tsup --watch",
