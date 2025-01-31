@@ -5,6 +5,7 @@
         "repo",
         "vite",
         "web",
-        "Old-Core"
+        "Old-Core",
+        "Types & Interfaces"
     ]
 }
