@@ -3,6 +3,7 @@
 
 // Importing functions
 import { $_Component_Decorator as Component } from "./decorators/component";
+import { createElement } from "./factories/createElement";
 
 
 
@@ -10,6 +11,7 @@ import { $_Component_Decorator as Component } from "./decorators/component";
 
 // Exporting
 export {
-  Component
+  Component,
+  createElement
 }
 
