@@ -1,16 +1,11 @@
-import _ELEMENT_INTERFACE from "./element";
+import _NoorClassComponentContextType from "./component-context";
 
-// __The class component interface type__
+// _The Noor Js Component Function Type
 
-// methods types
-type CLASS_COMPONENT_PAINT_METHOD_TYPE = () => _ELEMENT_INTERFACE;
-
-// class component Interface
-
-interface CLASS_COMPONENT_INTERFACE {
-  // paint method
-  paint: CLASS_COMPONENT_PAINT_METHOD_TYPE;
-}
-
-// Exporting types
-export default CLASS_COMPONENT_INTERFACE;
+// type
+export type _NoorComponentType = Function & {
+  property: {
+    _$ctx: _NoorClassComponentContextType;
+    [key: string]: any;
+  };
+};

@@ -1,13 +1,23 @@
 // This file is for re-exporting all the types/interfaces
 
 // importing the types/interfaces
-import _ELEMENT_INTERFACE from "./element";
-import CLASS_COMPONENT_INTERFACE from "./component";
-import CLASS_COMPONENT_CONTEXT_INTERFACE from "./component-context";
+import _NoorElementType from "./element";
+import _NoorClassComponentInterface from "./class-component";
+import {
+  _NoorNodeType,
+  _NoorEmptyType,
+  _NoorFragmentType,
+  _NoorTextType,
+} from "./global";
+import _NoorClassComponentContextType from "./component-context";
 
 // exporting the types
 export type {
-  _ELEMENT_INTERFACE,
-  CLASS_COMPONENT_INTERFACE,
-  CLASS_COMPONENT_CONTEXT_INTERFACE,
+  _NoorElementType,
+  _NoorClassComponentInterface,
+  _NoorClassComponentContextType,
+  _NoorNodeType,
+  _NoorEmptyType,
+  _NoorFragmentType,
+  _NoorTextType,
 };

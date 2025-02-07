@@ -7,10 +7,10 @@
 */
 
 // The context type (*NOTE - This may change in the feature and next versions)
-interface CLASS_COMPONENT_CONTEXT_INTERFACE {
+interface _NoorClassComponentContextType {
   $_id: string | null; // a unique id for the component
   $$typeof: symbol; // for secret reasons (to check letter if the element is generated the NoorJs createElement method)
 }
 
 // Exporting
-export default CLASS_COMPONENT_CONTEXT_INTERFACE;
+export default _NoorClassComponentContextType;

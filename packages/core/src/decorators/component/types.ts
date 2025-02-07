@@ -1,6 +1,6 @@
 //  __The @Component Decorator Types__
 
-import { CLASS_COMPONENT_INTERFACE } from "../../interfaces";
+import { _NoorClassComponentInterface } from "../../interfaces";
 
 // The @Component Decorator Options
 
@@ -13,7 +13,7 @@ type COMPONENT_DECORATOR_FUNCTION_TYPE = (
   constructor:
     | {
         new (...args: any[]): {};
-        prototype: CLASS_COMPONENT_INTERFACE;
+        prototype: _NoorClassComponentInterface;
       }
     | Function
 ) => void;

@@ -1,14 +1,19 @@
+
 // __The Element Object Type (The object that was returned by the createElement function)__
 
-// _ELEMENT_INTERFACE *TODO - Complete the element type
+import { _NoorNodeType } from "./global";
 
-interface _ELEMENT_INTERFACE {
-  $$typeof: symbol; // for secret reasons (to check letter if the element is generated the NoorJs createElement method)
-  props: {}; // the function or element props
-  type:
-    | string
-    | (() => void) /* component class (will be added later *NOTE - Add Component Class Type) */; // if the this component is a html tag (e.g div,h4) or a class component
+// NoorElementInterface *TODO - Complete the element type
+
+interface _NoorElementType {
+  $$typeof: symbol; // for security reasons (to check letter if the element is generated the NoorJs createElement method)
+  type: string | Function
+  props: {
+    children: _NoorNodeType | _NoorNodeType[];
+    [key: string]: any;
+  }; // the function or element props
+  key: string | null; // the node key
 }
 
 // Exporting the type
-export default _ELEMENT_INTERFACE;
+export default _NoorElementType;
