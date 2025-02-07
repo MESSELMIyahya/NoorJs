@@ -1,2 +1,5 @@
 import { defineConfig } from "vite";
-export default defineConfig({});
+import NoorVite from "@noorjs/vite";
+export default defineConfig({
+  plugins: [NoorVite(false)],
+});
