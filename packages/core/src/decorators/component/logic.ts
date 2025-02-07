@@ -4,6 +4,7 @@ import _NoorClassComponentContextType from "../../interfaces/component-context";
 import NoorError from "../../utilities/error";
 import { COMPONENT_DECORATOR_FUNCTION_TYPE } from "./types";
 import { NoorSymbolsList } from "../../global/symbols.list";
+import GenerateId from "../../utilities/generate-id";
 //  __The @Component Decorator Logic__
 
 // decorator function logic
@@ -21,7 +22,7 @@ const $_Component_Decorator: COMPONENT_DECORATOR_FUNCTION_TYPE = () => {
     }
     // setting the context for this component
     const _context: _NoorClassComponentContextType = {
-      $_id: nanoid(5),
+      $_id: GenerateId("component"),
       $$typeof: NoorSymbolsList.CLASS_COMPONENT_ELEMENT_SYMBOL,
     };
 
