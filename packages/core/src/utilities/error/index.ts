@@ -1,12 +1,13 @@
 // __The NoorJs Error Class__
 
 // Error types
-type ErrorTypes = "NotCalled" | "NotFound" | "NotInitialized";
+type ErrorTypes = "NotCalled" | "NotFound" | "NotInitialized" | "NotValid";
 
 // ErrorNames
 const ErrorNames: Record<ErrorTypes, string> = {
   NotCalled: "NoorJs:FunctionIsn'tCalled",
   NotFound: "NoorJs:NotFound",
+  NotValid: "NoorJs:NotValid",
   NotInitialized: "NoorJs:NotInitialized",
 };
 
