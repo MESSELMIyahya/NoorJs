@@ -1,6 +1,9 @@
+import { nanoid } from "nanoid";
 import { NoorErrorsMessagesList } from "../../enums/errors.list";
+import _NoorClassComponentContextType from "../../interfaces/component-context";
 import NoorError from "../../utilities/error";
 import { COMPONENT_DECORATOR_FUNCTION_TYPE } from "./types";
+import { NoorSymbolsList } from "../../global/symbols.list";
 //  __The @Component Decorator Logic__
 
 // decorator function logic
@@ -16,6 +19,14 @@ const $_Component_Decorator: COMPONENT_DECORATOR_FUNCTION_TYPE = () => {
         "NotFound"
       );
     }
+    // setting the context for this component
+    const _context: _NoorClassComponentContextType = {
+      $_id: nanoid(5),
+      $$typeof: NoorSymbolsList.CLASS_COMPONENT_ELEMENT_SYMBOL,
+    };
+
+    // setting the context inside the constructor prototype
+    constructor.prototype._$ctx = _context;
   };
 };
 
