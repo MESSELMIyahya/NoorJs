@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@noorjs/core": "*",
-    "@noorjs/vite": "*"
+    "@noorjs/vite": "*",
+    "@noorjs/dom": "*"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",

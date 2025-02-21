@@ -1,11 +1,51 @@
-import { Component } from "@noorjs/core";
+import { Component, createElement } from "@noorjs/core";
+import { renderRoot } from "@noorjs/dom";
 
-@Component()
-class AppComponent {
-  paint() {
-    return "Hello World";
-  }
-}
+// @Component()
+// class AppComponent {
+//   paint() {
+//     return "Hello World";
+//   }
+// }
+
+console.time("RENDERING");
+
+// console.log(createElement(AppComponent, {}));
+
+// console.log('element :',<div><span/></div>)
+
+const ele = (
+  <ul className="">
+    {Array.from({ length: 50 }).map((_, idx) => (
+      <li>
+        {idx % 2 == 0 ? (
+          <span>
+            Numbers{" "}
+            {Array.from({ length: 20 }).map(
+              (_, sub_idx) => ", " + (sub_idx & idx)
+            )}
+          </span>
+        ) : null}
+      </li>
+    ))}
+  </ul>
+);
+
+// console.log("ELE :", ele);
+renderRoot(ele, document.getElementById("app")!);
+
+console.timeEnd("RENDERING");
+
+// @Component()
+// class Home {
+//   paint() {
+//     return "home";
+//   }
+// }
+// const count = 0;
+// console.log( <AppComponent/> );
+
+// console.log(createElement(AppComponent, {}));
 
 // @Component({})
 // class MyComponent {
