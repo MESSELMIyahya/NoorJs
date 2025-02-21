@@ -24,6 +24,8 @@
   "workspaces": [
     "packages/vite-plugin",
     "packages/types",
+    "packages/shared",
+    "packages/dom",
     "packages/core"
   ],
   "dependencies": {
