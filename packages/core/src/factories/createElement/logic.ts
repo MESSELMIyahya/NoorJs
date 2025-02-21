@@ -1,7 +1,6 @@
 import { NoorErrorsMessagesList } from "../../enums/errors.list";
 import { NoorSymbolsList } from "../../global/symbols.list";
-import { _NoorComponentType } from "../../interfaces/component";
-import _NoorClassComponentContextType from "../../interfaces/component-context";
+import { _NoorClassComponentContextType, _NoorComponentType } from '@noorjs/types'
 import { CheckIfComponentIsValid } from "../../utilities/checkers/check-in-component-is-valid";
 import NoorError from "../../utilities/error";
 import { _NoorCreateElementType } from "./type";

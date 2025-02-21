@@ -1,5 +1,5 @@
 import { NoorSymbolsList } from "../../global/symbols.list";
-import { _NoorComponentType } from "../../interfaces/component";
+import { _NoorComponentType } from '@noorjs/types'
 
 // check if component is valid (it checks if this class component was initialized by the @Component decorator and has a $$typeof symbol for security to avoid component inject in runtime env)
 export function CheckIfComponentIsValid(compo: _NoorComponentType) {

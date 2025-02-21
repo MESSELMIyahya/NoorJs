@@ -1,6 +1,5 @@
-import { nanoid } from "nanoid";
 import { NoorErrorsMessagesList } from "../../enums/errors.list";
-import _NoorClassComponentContextType from "../../interfaces/component-context";
+import {_NoorClassComponentContextType} from '@noorjs/types'
 import NoorError from "../../utilities/error";
 import { COMPONENT_DECORATOR_FUNCTION_TYPE } from "./types";
 import { NoorSymbolsList } from "../../global/symbols.list";

@@ -1,6 +1,6 @@
 //  __The @Component Decorator Types__
 
-import { _NoorClassComponentInterface } from "../../interfaces";
+import { _NoorClassComponentInterface } from "@noorjs/types";
 
 // The @Component Decorator Options
 

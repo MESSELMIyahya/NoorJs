@@ -1,5 +1,8 @@
-import { _NoorElementType, _NoorNodeType } from "../../interfaces";
-import { _NoorComponentType } from "../../interfaces/component";
+import {
+  _NoorComponentType,
+  _NoorElementType,
+  _NoorNodeType,
+} from "@noorjs/types";
 
 //  __The createElement function types__
 
