@@ -39,6 +39,9 @@ importers:
       '@noorjs/core':
         specifier: '*'
         version: link:../../packages/core
+      '@noorjs/dom':
+        specifier: '*'
+        version: link:../../packages/dom
       '@noorjs/vite':
         specifier: '*'
         version: link:../../packages/vite-plugin
