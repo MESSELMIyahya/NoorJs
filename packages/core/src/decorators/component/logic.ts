@@ -1,8 +1,8 @@
 import { NoorErrorsMessagesList } from "@noorjs/shared/enums";
-import {_NoorClassComponentContextType} from '@noorjs/types'
-import NoorError from "../../utilities/error";
+import { _NoorClassComponentContextType } from "@noorjs/types";
+import { NoorError } from "@noorjs/shared/global";
 import { COMPONENT_DECORATOR_FUNCTION_TYPE } from "./types";
-import { NoorSymbolsList } from "../../global/symbols.list";
+import { NoorSymbolsList } from "@noorjs/shared/symbols";
 import GenerateId from "../../utilities/generate-id";
 //  __The @Component Decorator Logic__
 
