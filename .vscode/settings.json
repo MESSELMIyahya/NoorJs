@@ -12,6 +12,7 @@
         "Factories",
         "Enums",
         "Symbols",
-        "Types"
+        "Types",
+        "Shared"
     ]
 }

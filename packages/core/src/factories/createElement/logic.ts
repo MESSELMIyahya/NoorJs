@@ -1,4 +1,4 @@
-import { NoorErrorsMessagesList } from "../../enums/errors.list";
+import { NoorErrorsMessagesList } from "@noorjs/shared/enums";
 import { NoorSymbolsList } from "../../global/symbols.list";
 import { _NoorClassComponentContextType, _NoorComponentType } from '@noorjs/types'
 import { CheckIfComponentIsValid } from "../../utilities/checkers/check-in-component-is-valid";

@@ -1,4 +1,4 @@
-import { NoorErrorsMessagesList } from "../../enums/errors.list";
+import { NoorErrorsMessagesList } from "@noorjs/shared/enums";
 import {_NoorClassComponentContextType} from '@noorjs/types'
 import NoorError from "../../utilities/error";
 import { COMPONENT_DECORATOR_FUNCTION_TYPE } from "./types";
