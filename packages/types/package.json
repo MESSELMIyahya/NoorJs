@@ -1,0 +1,14 @@
+{
+  "name": "@noorjs/types",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup --watch",
+    "lint": "tsc",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

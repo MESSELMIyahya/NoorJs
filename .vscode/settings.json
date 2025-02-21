@@ -10,6 +10,8 @@
         "Decorators",
         "Utilities",
         "Factories",
-        "Enums"
+        "Enums",
+        "Symbols",
+        "Types"
     ]
 }

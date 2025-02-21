@@ -1,6 +1,7 @@
 packages:
   - "apps/*"
   - "packages/config-eslint"
+  - "packages/types"
   - "packages/config-typescript"
   - "packages/vite-plugin"
   - "packages/core"
