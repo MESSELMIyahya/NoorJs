@@ -1,0 +1,40 @@
+{
+  "name": "@noorjs/shared",
+  "version": "1.0.0",
+  "private": false,
+  "description": "NoorJs Share Functionality",
+  "type": "module",
+  "scripts": {
+    "dev": "tsup --watch",
+    "lint": "tsc",
+    "build": "tsup"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "dist/global",
+    "dist/enums",
+    "dist/symbols",
+    "README.md",
+    "package.json"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./global": "./dist/global/index.js",
+    "./enums": "./dist/enums/index.js",
+    "./symbols": "./dist/symbols/index.js"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "eslint": "^8.57.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@noorjs/types": "*"
+  },
+  "license": "MIT",
+  "author": "YahyaMesselmi"
+}

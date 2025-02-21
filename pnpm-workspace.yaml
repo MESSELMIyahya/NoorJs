@@ -2,6 +2,7 @@ packages:
   - "apps/*"
   - "packages/config-eslint"
   - "packages/types"
+  - "packages/shared"
   - "packages/config-typescript"
   - "packages/vite-plugin"
   - "packages/core"
