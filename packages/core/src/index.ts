@@ -2,16 +2,20 @@
 
 
 // Importing functions
+import { NoorFragment as Fragment } from "./components/Fragment";
 import { $_Component_Decorator as Component } from "./decorators/component";
 import { createElement } from "./factories/createElement";
 
-
+// Importing Component
 
 
 
 // Exporting
 export {
+  // functions
   Component,
-  createElement
+  createElement,
+  // components
+  Fragment
 }
 
