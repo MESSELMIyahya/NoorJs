@@ -1,6 +1,12 @@
 // __ The NoorJs render function logic __
 
-import { _NoorElementType, _NoorNodeType } from "@noorjs/types";
+import {
+  _NoorClassComponentInterface,
+  _NoorComponentType,
+  _NoorElementType,
+  _NoorNodeType,
+} from "@noorjs/types";
+import { invokeComponent } from "../invok-component";
 
 // renderChild function logic
 
@@ -26,7 +32,7 @@ function renderChild(
     // append the fragment to the parent
     parent.appendChild(fragment);
   }
-  // check if the child is a element
+  // check if the child is an element
   else if (typeof child === "object") {
     // element
     render(
@@ -85,5 +91,20 @@ export function render(
   }
   // else is a class component
   else {
+    // invoke the component and get the parent child
+    const parentChild = invokeComponent(type as _NoorComponentType, props);
+
+    // create a fragment
+    const fragment_parent = document.createDocumentFragment();
+
+    // render the children
+    // rendering the children from the parent children
+    if (parentChild) {
+      // parent child is not an array
+      renderChild(parentChild, fragment_parent);
+    }
+
+    // append the child
+    container.appendChild(fragment_parent);
   }
 }
