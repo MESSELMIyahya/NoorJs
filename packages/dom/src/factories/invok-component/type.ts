@@ -1,0 +1,1 @@
+// __ The NoorJs invoke component function types __
