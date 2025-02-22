@@ -70,9 +70,16 @@ export function render(
     Object.keys(props).forEach((key) => {
       // if the key is the children
       if (key == "children") return;
-
+      // if the key is the style
+      else if (key === "style" && typeof props[key] == "object") {
+        // loop over the style properties
+        Object.keys(props["style"]).forEach((style_property) => {
+          // set the style property to the _ele style object
+          _ele.style[style_property as any] = props["style"][style_property];
+        });
+      }
       // if the key is the className
-      if (key == "className") {
+      else if (key == "className") {
         _ele.setAttribute("class", props[key]);
       } else {
         _ele.setAttribute(key, props[key]);
