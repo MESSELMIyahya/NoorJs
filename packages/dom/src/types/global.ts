@@ -1,11 +1,40 @@
 // __The NoorJs DOM Global Types__
 
-import { _NoorNodeType } from "@noorjs/types";
-document.getElementById("")!;
+import { _NoorElementType, _NoorNodeType } from "@noorjs/types";
+
+export type ComponentType<P = any> = {
+  new (...args: any[]): {
+    props?: P;
+    paint(): any;
+  };
+};
+
+// Extract props from component class
+export type ExtractProps<T> = T extends ComponentType<infer P> ? P : never;
+
+// Combine component props with HTML attributes
+export type ComponentProps<T extends ComponentType> = ExtractProps<T> & {
+  // key?: string | number;
+  ref?: (instance: InstanceType<T> | null) => void;
+};
+
 // JSX Types
 declare global {
   namespace JSX {
-    type Element = HTMLElement;
+    type Element = _NoorElementType;
+
+    interface ElementClass {
+      paint(): any;
+    }
+
+    interface ElementAttributesProperty {
+      props: {};
+    }
+
+    interface IntrinsicAttributes {
+      // key?: string | number;
+      // intrinsic types here like 'key'
+    }
 
     interface IntrinsicElements {
       // Basic HTML elements
@@ -275,115 +304,115 @@ declare global {
 
       // Event handlers
       // Mouse Events
-    onClick?: (event: MouseEvent) => void;
-    onContextMenu?: (event: MouseEvent) => void;
-    onDoubleClick?: (event: MouseEvent) => void;
-    onDrag?: (event: DragEvent) => void;
-    onDragEnd?: (event: DragEvent) => void;
-    onDragEnter?: (event: DragEvent) => void;
-    onDragExit?: (event: DragEvent) => void;
-    onDragLeave?: (event: DragEvent) => void;
-    onDragOver?: (event: DragEvent) => void;
-    onDragStart?: (event: DragEvent) => void;
-    onDrop?: (event: DragEvent) => void;
-    onMouseDown?: (event: MouseEvent) => void;
-    onMouseEnter?: (event: MouseEvent) => void;
-    onMouseLeave?: (event: MouseEvent) => void;
-    onMouseMove?: (event: MouseEvent) => void;
-    onMouseOut?: (event: MouseEvent) => void;
-    onMouseOver?: (event: MouseEvent) => void;
-    onMouseUp?: (event: MouseEvent) => void;
+      onClick?: (event: MouseEvent) => void;
+      onContextMenu?: (event: MouseEvent) => void;
+      onDoubleClick?: (event: MouseEvent) => void;
+      onDrag?: (event: DragEvent) => void;
+      onDragEnd?: (event: DragEvent) => void;
+      onDragEnter?: (event: DragEvent) => void;
+      onDragExit?: (event: DragEvent) => void;
+      onDragLeave?: (event: DragEvent) => void;
+      onDragOver?: (event: DragEvent) => void;
+      onDragStart?: (event: DragEvent) => void;
+      onDrop?: (event: DragEvent) => void;
+      onMouseDown?: (event: MouseEvent) => void;
+      onMouseEnter?: (event: MouseEvent) => void;
+      onMouseLeave?: (event: MouseEvent) => void;
+      onMouseMove?: (event: MouseEvent) => void;
+      onMouseOut?: (event: MouseEvent) => void;
+      onMouseOver?: (event: MouseEvent) => void;
+      onMouseUp?: (event: MouseEvent) => void;
 
-    // Keyboard Events
-    onKeyDown?: (event: KeyboardEvent) => void;
-    onKeyPress?: (event: KeyboardEvent) => void;
-    onKeyUp?: (event: KeyboardEvent) => void;
+      // Keyboard Events
+      onKeyDown?: (event: KeyboardEvent) => void;
+      onKeyPress?: (event: KeyboardEvent) => void;
+      onKeyUp?: (event: KeyboardEvent) => void;
 
-    // Form Events
-    onChange?: (event: Event) => void;
-    onInput?: (event: InputEvent) => void;
-    onInvalid?: (event: Event) => void;
-    onReset?: (event: Event) => void;
-    onSubmit?: (event: SubmitEvent) => void;
+      // Form Events
+      onChange?: (event: Event) => void;
+      onInput?: (event: InputEvent) => void;
+      onInvalid?: (event: Event) => void;
+      onReset?: (event: Event) => void;
+      onSubmit?: (event: SubmitEvent) => void;
 
-    // Focus Events
-    onFocus?: (event: FocusEvent) => void;
-    onFocusIn?: (event: FocusEvent) => void;
-    onFocusOut?: (event: FocusEvent) => void;
-    onBlur?: (event: FocusEvent) => void;
+      // Focus Events
+      onFocus?: (event: FocusEvent) => void;
+      onFocusIn?: (event: FocusEvent) => void;
+      onFocusOut?: (event: FocusEvent) => void;
+      onBlur?: (event: FocusEvent) => void;
 
-    // Clipboard Events
-    onCopy?: (event: ClipboardEvent) => void;
-    onCut?: (event: ClipboardEvent) => void;
-    onPaste?: (event: ClipboardEvent) => void;
+      // Clipboard Events
+      onCopy?: (event: ClipboardEvent) => void;
+      onCut?: (event: ClipboardEvent) => void;
+      onPaste?: (event: ClipboardEvent) => void;
 
-    // Media Events
-    onAbort?: (event: Event) => void;
-    onCanPlay?: (event: Event) => void;
-    onCanPlayThrough?: (event: Event) => void;
-    onDurationChange?: (event: Event) => void;
-    onEmptied?: (event: Event) => void;
-    onEncrypted?: (event: Event) => void;
-    onEnded?: (event: Event) => void;
-    onLoadedData?: (event: Event) => void;
-    onLoadedMetadata?: (event: Event) => void;
-    onLoadStart?: (event: Event) => void;
-    onPause?: (event: Event) => void;
-    onPlay?: (event: Event) => void;
-    onPlaying?: (event: Event) => void;
-    onProgress?: (event: Event) => void;
-    onRateChange?: (event: Event) => void;
-    onSeeked?: (event: Event) => void;
-    onSeeking?: (event: Event) => void;
-    onStalled?: (event: Event) => void;
-    onSuspend?: (event: Event) => void;
-    onTimeUpdate?: (event: Event) => void;
-    onVolumeChange?: (event: Event) => void;
-    onWaiting?: (event: Event) => void;
+      // Media Events
+      onAbort?: (event: Event) => void;
+      onCanPlay?: (event: Event) => void;
+      onCanPlayThrough?: (event: Event) => void;
+      onDurationChange?: (event: Event) => void;
+      onEmptied?: (event: Event) => void;
+      onEncrypted?: (event: Event) => void;
+      onEnded?: (event: Event) => void;
+      onLoadedData?: (event: Event) => void;
+      onLoadedMetadata?: (event: Event) => void;
+      onLoadStart?: (event: Event) => void;
+      onPause?: (event: Event) => void;
+      onPlay?: (event: Event) => void;
+      onPlaying?: (event: Event) => void;
+      onProgress?: (event: Event) => void;
+      onRateChange?: (event: Event) => void;
+      onSeeked?: (event: Event) => void;
+      onSeeking?: (event: Event) => void;
+      onStalled?: (event: Event) => void;
+      onSuspend?: (event: Event) => void;
+      onTimeUpdate?: (event: Event) => void;
+      onVolumeChange?: (event: Event) => void;
+      onWaiting?: (event: Event) => void;
 
-    // Image Events
-    onLoad?: (event: Event) => void;
-    onError?: (event: Event) => void;
+      // Image Events
+      onLoad?: (event: Event) => void;
+      onError?: (event: Event) => void;
 
-    // Animation Events
-    onAnimationStart?: (event: AnimationEvent) => void;
-    onAnimationEnd?: (event: AnimationEvent) => void;
-    onAnimationIteration?: (event: AnimationEvent) => void;
+      // Animation Events
+      onAnimationStart?: (event: AnimationEvent) => void;
+      onAnimationEnd?: (event: AnimationEvent) => void;
+      onAnimationIteration?: (event: AnimationEvent) => void;
 
-    // Transition Events
-    onTransitionEnd?: (event: TransitionEvent) => void;
+      // Transition Events
+      onTransitionEnd?: (event: TransitionEvent) => void;
 
-    // Touch Events
-    onTouchCancel?: (event: TouchEvent) => void;
-    onTouchEnd?: (event: TouchEvent) => void;
-    onTouchMove?: (event: TouchEvent) => void;
-    onTouchStart?: (event: TouchEvent) => void;
+      // Touch Events
+      onTouchCancel?: (event: TouchEvent) => void;
+      onTouchEnd?: (event: TouchEvent) => void;
+      onTouchMove?: (event: TouchEvent) => void;
+      onTouchStart?: (event: TouchEvent) => void;
 
-    // Pointer Events
-    onPointerDown?: (event: PointerEvent) => void;
-    onPointerMove?: (event: PointerEvent) => void;
-    onPointerUp?: (event: PointerEvent) => void;
-    onPointerCancel?: (event: PointerEvent) => void;
-    onPointerEnter?: (event: PointerEvent) => void;
-    onPointerLeave?: (event: PointerEvent) => void;
-    onPointerOver?: (event: PointerEvent) => void;
-    onPointerOut?: (event: PointerEvent) => void;
+      // Pointer Events
+      onPointerDown?: (event: PointerEvent) => void;
+      onPointerMove?: (event: PointerEvent) => void;
+      onPointerUp?: (event: PointerEvent) => void;
+      onPointerCancel?: (event: PointerEvent) => void;
+      onPointerEnter?: (event: PointerEvent) => void;
+      onPointerLeave?: (event: PointerEvent) => void;
+      onPointerOver?: (event: PointerEvent) => void;
+      onPointerOut?: (event: PointerEvent) => void;
 
-    // UI Events
-    onScroll?: (event: UIEvent) => void;
-    onWheel?: (event: WheelEvent) => void;
-    onSelect?: (event: Event) => void;
+      // UI Events
+      onScroll?: (event: UIEvent) => void;
+      onWheel?: (event: WheelEvent) => void;
+      onSelect?: (event: Event) => void;
 
-    // Composition Events
-    onCompositionStart?: (event: CompositionEvent) => void;
-    onCompositionUpdate?: (event: CompositionEvent) => void;
-    onCompositionEnd?: (event: CompositionEvent) => void;
+      // Composition Events
+      onCompositionStart?: (event: CompositionEvent) => void;
+      onCompositionUpdate?: (event: CompositionEvent) => void;
+      onCompositionEnd?: (event: CompositionEvent) => void;
 
-    // Storage Events
-    onStorage?: (event: StorageEvent) => void;
+      // Storage Events
+      onStorage?: (event: StorageEvent) => void;
 
-    // Generic Events
-    onToggle?: (event: Event) => void;
+      // Generic Events
+      onToggle?: (event: Event) => void;
     }
 
     interface SVGAttributes<T> extends DOMAttributes<T> {
