@@ -70,6 +70,11 @@ export function render(
     Object.keys(props).forEach((key) => {
       // if the key is the children
       if (key == "children") return;
+      // if the key is an event handler
+      else if (key.startsWith("on") && typeof props[key] == "function") {
+        // setting the method to _ele
+        (_ele as any)[key.toLocaleLowerCase()] = props[key];
+      }
       // if the key is the style
       else if (key === "style" && typeof props[key] == "object") {
         // loop over the style properties
